@@ -1,12 +1,16 @@
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Velvet Aura — The Art of Quiet Elegance</title>
 
 <style>
+
 :root{
   --cream:#f8eee5;
   --cream2:#ead7c9;
@@ -16,6 +20,8 @@
   --white:#fffaf6;
   --muted:#8b746b;
   --dark:#3d2924;
+  --green:#72866d;
+  --red:#a86b61;
   --shadow:0 20px 60px rgba(74,45,35,.12);
 }
 
@@ -30,11 +36,25 @@ html{
 body{
   margin:0;
   min-height:100vh;
+
   background:
-    radial-gradient(circle at top left, rgba(255,255,255,.75), transparent 35%),
-    linear-gradient(135deg,var(--cream),var(--cream2));
+    radial-gradient(
+      circle at top left,
+      rgba(255,255,255,.75),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      var(--cream),
+      var(--cream2)
+    );
+
   color:var(--brown);
-  font-family:Georgia,"Times New Roman",serif;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 }
 
 button,
@@ -47,22 +67,34 @@ button{
   cursor:pointer;
 }
 
+
+/* =========================
+   NAVBAR
+========================= */
+
 .navbar{
   position:sticky;
   top:0;
   z-index:100;
+
   background:rgba(255,250,246,.94);
+
   backdrop-filter:blur(15px);
-  border-bottom:1px solid rgba(139,100,85,.15);
+
+  border-bottom:
+    1px solid rgba(139,100,85,.15);
+
   padding:15px 20px;
 }
 
 .nav-inner{
   max-width:1200px;
   margin:auto;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
+
   gap:20px;
 }
 
@@ -83,9 +115,13 @@ button{
 .nav-btn{
   border:0;
   background:transparent;
+
   color:var(--brown);
+
   padding:10px 15px;
+
   border-radius:30px;
+
   transition:.25s;
 }
 
@@ -95,10 +131,21 @@ button{
   color:white;
 }
 
+
+/* =========================
+   SCREENS
+========================= */
+
 .screen{
   display:none;
-  min-height:calc(100vh - 75px);
-  padding:60px 20px 90px;
+
+  min-height:
+    calc(100vh - 75px);
+
+  padding:
+    60px
+    20px
+    90px;
 }
 
 .screen.active{
@@ -110,54 +157,87 @@ button{
   margin:auto;
 }
 
+
+/* =========================
+   HERO
+========================= */
+
 .hero{
-  min-height:calc(100vh - 75px);
+  min-height:
+    calc(100vh - 75px);
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   text-align:center;
 }
 
 .hero-inner{
   max-width:800px;
   margin:auto;
-  background:rgba(255,255,255,.48);
-  padding:65px 35px;
+
+  background:
+    rgba(255,255,255,.48);
+
+  padding:
+    65px
+    35px;
+
   border-radius:40px;
+
   box-shadow:var(--shadow);
 }
 
 .eyebrow{
   font-size:12px;
   letter-spacing:4px;
+
   margin-bottom:20px;
+
   color:var(--brown2);
 }
 
 .seal{
   width:75px;
   height:75px;
-  border:1px solid var(--gold);
+
+  border:
+    1px solid
+    var(--gold);
+
   border-radius:50%;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   margin:20px auto;
+
   color:var(--gold);
+
   letter-spacing:3px;
 }
 
 h1{
-  font-size:clamp(45px,8vw,85px);
+  font-size:
+    clamp(45px,8vw,85px);
+
   letter-spacing:10px;
+
   line-height:.95;
+
   margin:15px 0;
+
   color:var(--dark);
 }
 
 h2{
-  font-size:clamp(30px,5vw,48px);
+  font-size:
+    clamp(30px,5vw,48px);
+
   margin:15px 0;
+
   color:var(--dark);
 }
 
@@ -173,34 +253,60 @@ h3{
 .arabic-intro{
   font-size:19px;
   line-height:2;
+
   max-width:650px;
+
   margin:30px auto;
 }
 
 .gold-line{
   width:80px;
   height:1px;
+
   background:var(--gold);
+
   margin:20px 0;
 }
 
 .btn{
   border:0;
+
   border-radius:40px;
-  padding:15px 32px;
+
+  padding:
+    15px
+    32px;
+
   font-size:17px;
+
   transition:.25s;
 }
 
 .btn.gold{
   background:var(--brown2);
+
   color:white;
-  box-shadow:0 10px 25px rgba(91,64,56,.2);
+
+  box-shadow:
+    0 10px 25px
+    rgba(91,64,56,.2);
 }
 
 .btn.gold:hover{
   transform:translateY(-2px);
+
   background:#755143;
+}
+
+.btn.danger{
+  background:#9b655d;
+  color:white;
+}
+
+.btn.light{
+  background:rgba(255,255,255,.7);
+  color:var(--brown);
+  border:1px solid rgba(139,100,85,.15);
 }
 
 .center{
@@ -210,31 +316,126 @@ h3{
 .subtitle{
   color:var(--muted);
   line-height:1.9;
+
   max-width:700px;
 }
 
+
+/* =========================
+   GRID / CARDS
+========================= */
+
 .grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+
+  grid-template-columns:
+    repeat(2,1fr);
+
   gap:20px;
+
   margin-top:35px;
 }
 
 .grid.three{
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:
+    repeat(3,1fr);
 }
 
 .card{
-  background:rgba(255,255,255,.6);
-  border:1px solid rgba(139,100,85,.12);
+  background:
+    rgba(255,255,255,.6);
+
+  border:
+    1px solid
+    rgba(139,100,85,.12);
+
   border-radius:25px;
+
   padding:28px;
+
   box-shadow:var(--shadow);
 }
 
 .card.soft{
-  background:rgba(255,255,255,.38);
+  background:
+    rgba(255,255,255,.38);
+
   box-shadow:none;
+}
+
+.card p{
+  line-height:1.8;
+  color:#705b53;
+}
+
+
+/* =========================
+   STAGE CARDS
+========================= */
+
+.stage-card{
+  appearance:none;
+
+  width:100%;
+
+  text-align:right;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  background:
+    rgba(255,255,255,.6);
+
+  border:
+    1px solid
+    rgba(139,100,85,.12);
+
+  border-radius:25px;
+
+  padding:28px;
+
+  color:var(--brown);
+
+  box-shadow:var(--shadow);
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.stage-card:hover{
+  transform:translateY(-7px);
+
+  background:
+    rgba(255,255,255,.82);
+
+  box-shadow:
+    0 25px 55px
+    rgba(74,45,35,.17);
+}
+
+.stage-card h3{
+  font-size:28px;
+
+  margin:
+    18px
+    0
+    8px;
+}
+
+.stage-card p{
+  line-height:1.9;
+  color:#705b53;
+}
+
+.stage-link{
+  display:inline-block;
+
+  color:var(--gold);
+
+  font-size:14px;
 }
 
 .phase{
@@ -243,59 +444,88 @@ h3{
   color:var(--gold);
 }
 
-.card p{
-  line-height:1.8;
-  color:#705b53;
-}
+
+/* =========================
+   QUIZ
+========================= */
 
 .quiz-wrap{
   max-width:800px;
-  margin:40px auto;
+
+  margin:
+    40px
+    auto;
 }
 
 .progress{
   height:7px;
-  background:rgba(139,100,85,.15);
+
+  background:
+    rgba(139,100,85,.15);
+
   border-radius:20px;
+
   overflow:hidden;
+
   margin-bottom:30px;
 }
 
 .progress-bar{
   height:100%;
+
   width:0%;
+
   background:var(--brown2);
+
   transition:.3s;
 }
 
 .question-number{
   color:var(--gold);
+
   letter-spacing:3px;
+
   margin-bottom:15px;
 }
 
 .question-title{
   font-size:28px;
+
   line-height:1.6;
+
   margin-bottom:25px;
 }
 
 .option{
   width:100%;
+
   display:block;
-  border:1px solid rgba(139,100,85,.2);
-  background:rgba(255,255,255,.7);
+
+  border:
+    1px solid
+    rgba(139,100,85,.2);
+
+  background:
+    rgba(255,255,255,.7);
+
   color:var(--brown);
+
   border-radius:18px;
+
   padding:18px;
+
   margin:12px 0;
+
   text-align:right;
+
   transition:.25s;
 }
 
 .option:hover{
   background:var(--brown2);
+
   color:white;
+
   transform:translateY(-2px);
 }
 
@@ -305,10 +535,18 @@ h3{
 
 .result-aura{
   font-size:50px;
+
   letter-spacing:5px;
+
   color:var(--brown2);
+
   margin:20px 0;
 }
+
+
+/* =========================
+   FORMS
+========================= */
 
 .field{
   margin:20px 0;
@@ -316,23 +554,35 @@ h3{
 
 .field label{
   display:block;
+
   margin-bottom:8px;
+
   color:var(--brown2);
 }
 
 .field input,
 .field textarea{
   width:100%;
-  border:1px solid rgba(139,100,85,.2);
-  background:rgba(255,255,255,.7);
+
+  border:
+    1px solid
+    rgba(139,100,85,.2);
+
+  background:
+    rgba(255,255,255,.7);
+
   color:var(--brown);
+
   border-radius:15px;
+
   padding:14px;
+
   outline:none;
 }
 
 .field textarea{
   min-height:120px;
+
   resize:vertical;
 }
 
@@ -343,41 +593,75 @@ h3{
 
 .checkbox-row{
   display:flex;
+
   flex-wrap:wrap;
+
   gap:10px;
 }
 
 .check{
-  border:1px solid rgba(139,100,85,.25);
-  background:rgba(255,255,255,.65);
+  border:
+    1px solid
+    rgba(139,100,85,.25);
+
+  background:
+    rgba(255,255,255,.65);
+
   color:var(--brown);
-  padding:12px 15px;
+
+  padding:
+    12px
+    15px;
+
   border-radius:25px;
 }
 
 .check.selected{
   background:var(--brown2);
+
   color:white;
 }
 
+
+/* =========================
+   QUOTES
+========================= */
+
 .quote{
   margin:25px 0;
+
   padding:20px;
-  border-right:3px solid var(--gold);
+
+  border-right:
+    3px solid
+    var(--gold);
+
   color:var(--muted);
+
   line-height:1.9;
-  background:rgba(255,255,255,.3);
+
+  background:
+    rgba(255,255,255,.3);
 }
+
+
+/* =========================
+   RITUALS
+========================= */
 
 .code-card{
   display:flex;
+
   gap:25px;
+
   align-items:flex-start;
 }
 
 .code-number{
   font-size:38px;
+
   color:var(--gold);
+
   min-width:55px;
 }
 
@@ -387,7 +671,9 @@ h3{
 
 .checklist{
   padding-right:20px;
+
   line-height:2;
+
   color:#705b53;
 }
 
@@ -395,63 +681,551 @@ h3{
   color:var(--gold);
 }
 
+
+/* =========================
+   JOURNEY PROGRESS
+========================= */
+
+.journey-summary{
+  margin-top:35px;
+}
+
+.journey-top{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:20px;
+
+  flex-wrap:wrap;
+}
+
+.journey-counter{
+  font-size:24px;
+
+  color:var(--dark);
+}
+
+.journey-counter strong{
+  color:var(--gold);
+}
+
+.journey-progress{
+  width:100%;
+
+  height:12px;
+
+  background:
+    rgba(139,100,85,.15);
+
+  border-radius:30px;
+
+  overflow:hidden;
+
+  margin:
+    20px
+    0
+    10px;
+}
+
+.journey-progress-bar{
+  height:100%;
+
+  width:0%;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      var(--brown2)
+    );
+
+  border-radius:30px;
+
+  transition:.5s;
+}
+
+.progress-text{
+  color:var(--muted);
+
+  font-size:14px;
+}
+
+
+/* =========================
+   30 DAYS
+========================= */
+
+.days-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:15px;
+
+  margin-top:25px;
+}
+
+.day-card{
+  position:relative;
+
+  min-height:230px;
+
+  padding:22px;
+
+  border-radius:22px;
+
+  background:
+    rgba(255,255,255,.55);
+
+  border:
+    1px solid
+    rgba(139,100,85,.12);
+
+  transition:.3s;
+}
+
+.day-card.locked{
+  opacity:.58;
+
+  filter:saturate(.65);
+}
+
+.day-card.available{
+  border-color:
+    rgba(178,138,98,.55);
+
+  box-shadow:
+    0 12px 35px
+    rgba(178,138,98,.12);
+}
+
+.day-card.current{
+  border:
+    2px solid
+    var(--gold);
+
+  background:
+    rgba(255,250,246,.9);
+
+  transform:translateY(-3px);
+}
+
+.day-card.completed{
+  border-color:
+    rgba(114,134,109,.55);
+
+  background:
+    rgba(242,247,239,.75);
+}
+
+.day-number{
+  font-size:13px;
+
+  letter-spacing:3px;
+
+  color:var(--gold);
+
+  margin-bottom:10px;
+}
+
+.day-card h3{
+  font-size:20px;
+
+  margin:
+    8px
+    0
+    10px;
+}
+
+.day-card p{
+  color:#705b53;
+
+  line-height:1.7;
+
+  font-size:14px;
+
+  min-height:70px;
+}
+
+.day-status{
+  font-size:13px;
+
+  margin:
+    12px
+    0;
+}
+
+.status-locked{
+  color:#9b8178;
+}
+
+.status-ready{
+  color:var(--gold);
+}
+
+.status-completed{
+  color:var(--green);
+  font-weight:bold;
+}
+
+.day-btn{
+  width:100%;
+
+  border:0;
+
+  border-radius:30px;
+
+  padding:11px;
+
+  background:var(--brown2);
+
+  color:white;
+
+  transition:.25s;
+}
+
+.day-btn:hover{
+  background:#755143;
+
+  transform:translateY(-2px);
+}
+
+.day-btn:disabled{
+  cursor:not-allowed;
+
+  background:
+    rgba(139,100,85,.2);
+
+  color:
+    rgba(91,64,56,.55);
+
+  transform:none;
+}
+
+.day-btn.completed-btn{
+  background:var(--green);
+}
+
+
+/* =========================
+   CURRENT DAY PANEL
+========================= */
+
+.current-day-panel{
+  margin-top:25px;
+
+  border:
+    1px solid
+    rgba(178,138,98,.3);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(247,235,224,.9),
+      rgba(232,207,192,.65)
+    );
+
+  border-radius:28px;
+
+  padding:30px;
+
+  display:none;
+}
+
+.current-day-panel.show{
+  display:block;
+}
+
+.current-day-badge{
+  display:inline-block;
+
+  background:var(--brown2);
+
+  color:white;
+
+  padding:
+    8px
+    15px;
+
+  border-radius:30px;
+
+  font-size:12px;
+
+  letter-spacing:2px;
+}
+
+.current-day-panel h3{
+  font-size:30px;
+
+  margin:
+    18px
+    0
+    10px;
+}
+
+.current-day-panel p{
+  line-height:1.9;
+
+  color:#705b53;
+}
+
+.day-complete-area{
+  margin-top:25px;
+}
+
+.completion-message{
+  display:none;
+
+  color:var(--green);
+
+  font-weight:bold;
+
+  margin-top:15px;
+}
+
+.completion-message.show{
+  display:block;
+}
+
+
+/* =========================
+   LEVELS
+========================= */
+
 .levels{
   display:grid;
+
   gap:15px;
+
+  margin-top:25px;
 }
 
 .level{
+  position:relative;
+
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
+
   gap:20px;
-  padding:20px;
-  border-radius:18px;
-  background:rgba(255,255,255,.5);
-  border:1px solid rgba(139,100,85,.1);
+
+  padding:22px;
+
+  border-radius:20px;
+
+  background:
+    rgba(255,255,255,.5);
+
+  border:
+    1px solid
+    rgba(139,100,85,.1);
+
+  transition:.3s;
 }
 
-.active-level{
-  border-color:var(--gold);
-  background:rgba(255,250,246,.85);
+.level.locked-level{
+  opacity:.52;
+}
+
+.level.active-level{
+  border:
+    2px solid
+    var(--gold);
+
+  background:
+    rgba(255,250,246,.9);
+
+  box-shadow:
+    0 12px 30px
+    rgba(178,138,98,.12);
+}
+
+.level.completed-level{
+  border-color:
+    rgba(114,134,109,.55);
+
+  background:
+    rgba(242,247,239,.72);
+}
+
+.level-title{
+  font-weight:bold;
+
+  font-size:19px;
+
+  color:var(--dark);
+}
+
+.level-description{
+  margin:
+    7px
+    0
+    0;
+
+  color:var(--muted);
+
+  line-height:1.6;
+}
+
+.level-right{
+  text-align:center;
+
+  min-width:90px;
+}
+
+.level-badge{
+  display:inline-block;
+
+  padding:
+    6px
+    10px;
+
+  border-radius:20px;
+
+  font-size:11px;
+
+  margin-bottom:7px;
+}
+
+.badge-active{
+  background:var(--gold);
+  color:white;
+}
+
+.badge-completed{
+  background:var(--green);
+  color:white;
+}
+
+.badge-locked{
+  background:
+    rgba(139,100,85,.15);
+
+  color:var(--muted);
 }
 
 .points{
   color:var(--gold);
+
   font-size:20px;
+
   font-weight:bold;
 }
 
+.level-info{
+  margin-top:25px;
+
+  text-align:center;
+
+  color:var(--muted);
+
+  line-height:1.8;
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+.reset-box{
+  margin-top:30px;
+
+  padding:20px;
+
+  border-radius:20px;
+
+  background:
+    rgba(255,255,255,.35);
+
+  text-align:center;
+}
+
+
+/* =========================
+   AURA STATEMENT
+========================= */
+
 .share-card{
   max-width:600px;
-  margin:25px auto 0;
+
+  margin:
+    25px
+    auto
+    0;
+
   text-align:center;
+
   padding:35px;
+
   border-radius:25px;
-  background:linear-gradient(145deg,#f7ebe0,#e8cfc0);
-  border:1px solid rgba(178,138,98,.3);
+
+  background:
+    linear-gradient(
+      145deg,
+      #f7ebe0,
+      #e8cfc0
+    );
+
+  border:
+    1px solid
+    rgba(178,138,98,.3);
 }
 
 .statement{
   margin:25px 0;
+
   font-size:25px;
+
   color:var(--dark);
 }
 
+
+/* =========================
+   FOOTER
+========================= */
+
 .footer{
   text-align:center;
+
   padding:30px;
+
   color:var(--muted);
+
   font-size:13px;
 }
 
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+  .days-grid{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+}
+
 @media(max-width:800px){
+
   .nav-inner{
     flex-direction:column;
   }
 
   .grid,
   .grid.three{
+    grid-template-columns:1fr;
+  }
+
+  .days-grid{
     grid-template-columns:1fr;
   }
 
@@ -465,228 +1239,411 @@ h3{
 
   .nav-btn{
     font-size:13px;
-    padding:9px 11px;
+
+    padding:
+      9px
+      11px;
   }
 
   .screen{
-    padding:40px 15px 70px;
+    padding:
+      40px
+      15px
+      70px;
   }
 
   .code-card{
     flex-direction:column;
   }
-}.stage-card{
-  appearance:none;
-  width:100%;
-  text-align:right;
-  font-family:Georgia,"Times New Roman",serif;
-  background:rgba(255,255,255,.6);
-  border:1px solid rgba(139,100,85,.12);
-  border-radius:25px;
-  padding:28px;
-  color:var(--brown);
-  box-shadow:var(--shadow);
-  cursor:pointer;
-  transition:.3s;
+
+  .level{
+    flex-direction:column;
+
+    align-items:flex-start;
+  }
+
+  .level-right{
+    text-align:right;
+  }
+
 }
 
-.stage-card:hover{
-  transform:translateY(-7px);
-  background:rgba(255,255,255,.82);
-  box-shadow:0 25px 55px rgba(74,45,35,.17);
+
+/* =========================
+   SMALL ANIMATION
+========================= */
+
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
 }
 
-.stage-card h3{
-  font-size:28px;
-  margin:18px 0 8px;
+.day-card,
+.level,
+.current-day-panel{
+  animation:
+    fadeUp
+    .35s
+    ease;
 }
 
-.stage-card p{
-  line-height:1.9;
-  color:#705b53;
-}
-
-.stage-link{
-  display:inline-block;
-  color:var(--gold);
-  font-size:14px;
-}
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
 <nav class="navbar">
+
   <div class="nav-inner">
 
-    <div class="logo">VELVET AURA</div>
+    <div class="logo">
+      VELVET AURA
+    </div>
 
     <div class="nav-actions">
-      <button class="nav-btn active" onclick="showScreen('home', this)">Home</button>
-      <button class="nav-btn" onclick="showScreen('quiz', this)">Aura Quiz</button>
-      <button class="nav-btn" onclick="showScreen('dna', this)">My Aura</button>
-      <button class="nav-btn" onclick="showScreen('rituals', this)">Rituals</button>
-      <button class="nav-btn" onclick="showScreen('journey', this)">Journey</button>
+
+      <button
+        class="nav-btn active"
+        onclick="showScreen('home', this)"
+      >
+        Home
+      </button>
+
+      <button
+        class="nav-btn"
+        onclick="showScreen('quiz', this)"
+      >
+        Aura Quiz
+      </button>
+
+      <button
+        class="nav-btn"
+        onclick="showScreen('dna', this)"
+      >
+        My Aura
+      </button>
+
+      <button
+        class="nav-btn"
+        onclick="showScreen('rituals', this)"
+      >
+        Rituals
+      </button>
+
+      <button
+        class="nav-btn"
+        onclick="showScreen('journey', this)"
+      >
+        Journey
+      </button>
+
     </div>
 
   </div>
+
 </nav>
 
 
-<!-- HOME -->
-<main id="home" class="screen active">
+
+<!-- =========================
+     HOME
+========================= -->
+
+<main
+  id="home"
+  class="screen active"
+>
 
   <section class="hero">
+
     <div class="hero-inner">
 
-      <div class="eyebrow">✦ WELCOME TO YOUR VELVET MOMENT ✦</div>
+      <div class="eyebrow">
+        ✦ WELCOME TO YOUR VELVET MOMENT ✦
+      </div>
 
-      <div class="seal">VA</div>
+      <div class="seal">
+        VA
+      </div>
 
-      <h1>VELVET<br>AURA</h1>
+      <h1>
+        VELVET<br>
+        AURA
+      </h1>
 
-      <div class="english">The Art of Quiet Elegance</div>
+      <div class="english">
+        The Art of Quiet Elegance
+      </div>
 
-      <div class="gold-line" style="margin-left:auto;margin-right:auto;"></div>
+      <div
+        class="gold-line"
+        style="margin-left:auto;margin-right:auto;"
+      ></div>
 
       <p class="arabic-intro">
-        قبل أن تبدئي... امنحي نفسكِ لحظة هادئة.<br>
+
+        قبل أن تبدئي...
+        امنحي نفسكِ لحظة هادئة.
+
+        <br>
+
         مساحة هادئة صُممت لاكتشاف وصقل التفاصيل
         التي تعكس ذوقكِ الأصيل.
+
       </p>
 
       <p class="english">
-        Your Aura already exists.<br>
+
+        Your Aura already exists.
+        <br>
         We are simply revealing it.
+
       </p>
 
-      <button class="btn gold" onclick="showScreen('quiz')">
+      <button
+        class="btn gold"
+        onclick="showScreen('quiz')"
+      >
         اكتشفي هالتكِ
       </button>
 
     </div>
+
   </section>
+
 
   <section class="container">
 
     <div class="center">
-      <div class="eyebrow">THE SIGNATURE RITUAL</div>
-      <h2>طقسكِ الخاص للأناقة الهادئة</h2>
-      <p class="subtitle" style="margin:auto;">
+
+      <div class="eyebrow">
+        THE SIGNATURE RITUAL
+      </div>
+
+      <h2>
+        طقسكِ الخاص للأناقة الهادئة
+      </h2>
+
+      <p
+        class="subtitle"
+        style="margin:auto;"
+      >
+
         نظام عملي يساعدكِ على توضيح اختياراتكِ العطرية،
         ترتيب طقوسكِ اليومية، وبناء حضور شخصي يشبهكِ.
+
       </p>
+
     </div>
 
-<div class="grid three">
 
-  <button class="stage-card" onclick="showScreen('quiz')">
-
-    <span class="phase">01 — DISCOVER</span>
-
-    <h3>اكتشفي</h3>
-
-    <p>
-      اكتشفي نمط هالتكِ العطرية والشخصية
-      من خلال الاختبار التفاعلي.
-    </p>
-
-    <span class="stage-link">
-      ابدئي الاكتشاف ←
-    </span>
-
-  </button>
+    <div class="grid three">
 
 
-  <button class="stage-card" onclick="showScreen('dna')">
+      <button
+        class="stage-card"
+        onclick="showScreen('quiz')"
+      >
 
-    <span class="phase">02 — BUILD</span>
+        <span class="phase">
+          01 — DISCOVER
+        </span>
 
-    <h3>ابني</h3>
+        <h3>
+          اكتشفي
+        </h3>
 
-    <p>
-      ابني طقوس العناية والعطر والمظهر
-      حول هوية واضحة.
-    </p>
+        <p>
+          اكتشفي نمط هالتكِ العطرية والشخصية
+          من خلال الاختبار التفاعلي.
+        </p>
 
-    <span class="stage-link">
-      ابنِي هالتكِ ←
-    </span>
+        <span class="stage-link">
+          ابدئي الاكتشاف ←
+        </span>
 
-  </button>
+      </button>
 
 
-  <button class="stage-card" onclick="showScreen('rituals')">
+      <button
+        class="stage-card"
+        onclick="showScreen('dna')"
+      >
 
-    <span class="phase">03 — REFINE</span>
+        <span class="phase">
+          02 — BUILD
+        </span>
 
-    <h3>اصقلي</h3>
+        <h3>
+          ابنِي
+        </h3>
 
-    <p>
-      اضبطي التفاصيل الصغيرة التي تصنع
-      الفرق في حضوركِ.
-    </p>
+        <p>
+          ابنِي طقوس العناية والعطر والمظهر
+          حول هوية واضحة.
+        </p>
 
-    <span class="stage-link">
-      ابدئي طقوسكِ ←
-    </span>
+        <span class="stage-link">
+          ابنِي هالتكِ ←
+        </span>
 
-  </button>
+      </button>
 
-</div>
+
+      <button
+        class="stage-card"
+        onclick="showScreen('rituals')"
+      >
+
+        <span class="phase">
+          03 — REFINE
+        </span>
+
+        <h3>
+          اصقلي
+        </h3>
+
+        <p>
+          اضبطي التفاصيل الصغيرة التي تصنع
+          الفرق في حضوركِ.
+        </p>
+
+        <span class="stage-link">
+          ابدئي طقوسكِ ←
+        </span>
+
+      </button>
+
+
+    </div>
+
   </section>
 
 </main>
 
 
-<!-- QUIZ -->
-<main id="quiz" class="screen">
+
+<!-- =========================
+     QUIZ
+========================= -->
+
+<main
+  id="quiz"
+  class="screen"
+>
 
   <section class="container">
 
     <div class="center">
-      <div class="eyebrow">THE VELVET ARCHETYPE QUIZ</div>
-      <h2>اكتشفي نمط هالتكِ</h2>
-      <p class="subtitle" style="margin:auto;">
-        أجيبي بعفوية. لا توجد إجابة صحيحة أو خاطئة.
+
+      <div class="eyebrow">
+        THE VELVET ARCHETYPE QUIZ
+      </div>
+
+      <h2>
+        اكتشفي نمط هالتكِ
+      </h2>
+
+      <p
+        class="subtitle"
+        style="margin:auto;"
+      >
+        أجيبي بعفوية.
+        لا توجد إجابة صحيحة أو خاطئة.
       </p>
+
     </div>
+
 
     <div class="quiz-wrap">
 
       <div class="progress">
-        <div id="progressBar" class="progress-bar"></div>
+
+        <div
+          id="progressBar"
+          class="progress-bar"
+        ></div>
+
       </div>
 
-      <div id="quizBox" class="card">
 
-        <div class="question-number" id="questionNumber"></div>
+      <div
+        id="quizBox"
+        class="card"
+      >
 
-        <div class="question-title" id="questionTitle"></div>
+        <div
+          class="question-number"
+          id="questionNumber"
+        ></div>
+
+        <div
+          class="question-title"
+          id="questionTitle"
+        ></div>
 
         <div id="options"></div>
 
       </div>
 
-      <div id="quizResult" class="quiz-result card center">
 
-        <div class="eyebrow">YOUR AURA SIGNATURE</div>
+      <div
+        id="quizResult"
+        class="quiz-result card center"
+      >
 
-        <div id="resultAura" class="result-aura"></div>
+        <div class="eyebrow">
+          YOUR AURA SIGNATURE
+        </div>
+
+        <div
+          id="resultAura"
+          class="result-aura"
+        ></div>
 
         <h3 id="resultArabic"></h3>
 
-        <div class="gold-line" style="margin-left:auto;margin-right:auto;"></div>
+        <div
+          class="gold-line"
+          style="margin-left:auto;margin-right:auto;"
+        ></div>
 
-        <p id="resultDescription" class="subtitle" style="margin:auto;"></p>
+        <p
+          id="resultDescription"
+          class="subtitle"
+          style="margin:auto;"
+        ></p>
 
         <br>
 
-        <button class="btn gold" onclick="goToDNA()">
+        <button
+          class="btn gold"
+          onclick="goToDNA()"
+        >
           احفظي ملف هالتكِ
         </button>
 
-        <button class="btn" onclick="restartQuiz()" style="margin-right:8px;">
+        <button
+          class="btn light"
+          onclick="restartQuiz()"
+          style="margin-right:8px;"
+        >
           إعادة الاختبار
         </button>
 
@@ -699,47 +1656,96 @@ h3{
 </main>
 
 
-<!-- DNA -->
-<main id="dna" class="screen">
+
+<!-- =========================
+     DNA
+========================= -->
+
+<main
+  id="dna"
+  class="screen"
+>
 
   <section class="container">
 
     <div class="center">
-      <div class="eyebrow">MY VELVET AURA DNA</div>
-      <h2>ملف هالتكِ الشخصي</h2>
-      <p class="subtitle" style="margin:auto;">
+
+      <div class="eyebrow">
+        MY VELVET AURA DNA
+      </div>
+
+      <h2>
+        ملف هالتكِ الشخصي
+      </h2>
+
+      <p
+        class="subtitle"
+        style="margin:auto;"
+      >
         هذا الملف هو مركز هويتكِ داخل Velvet Aura.
       </p>
+
     </div>
+
 
     <div class="grid">
 
+
       <div class="card">
 
-        <h3>My Dominant Archetype</h3>
+        <h3>
+          My Dominant Archetype
+        </h3>
 
         <div class="field">
-          <label>بصمة هالتي الأساسية</label>
-          <input id="dominantInput" placeholder="مثال: Silk Aura">
+
+          <label>
+            بصمة هالتي الأساسية
+          </label>
+
+          <input
+            id="dominantInput"
+            placeholder="مثال: Silk Aura"
+          >
+
         </div>
 
-        <h3 style="margin-top:30px;">My Energy & Mood</h3>
 
-        <div class="checkbox-row" style="margin-top:15px;">
+        <h3 style="margin-top:30px;">
+          My Energy & Mood
+        </h3>
 
-          <button class="check" onclick="toggleCheck(this)">
+
+        <div
+          class="checkbox-row"
+          style="margin-top:15px;"
+        >
+
+          <button
+            class="check"
+            onclick="toggleCheck(this)"
+          >
             هادئة وأنثوية
           </button>
 
-          <button class="check" onclick="toggleCheck(this)">
+          <button
+            class="check"
+            onclick="toggleCheck(this)"
+          >
             دافئة وفاخرة
           </button>
 
-          <button class="check" onclick="toggleCheck(this)">
+          <button
+            class="check"
+            onclick="toggleCheck(this)"
+          >
             منعشة ونظيفة
           </button>
 
-          <button class="check" onclick="toggleCheck(this)">
+          <button
+            class="check"
+            onclick="toggleCheck(this)"
+          >
             غامضة وعميقة
           </button>
 
@@ -750,18 +1756,39 @@ h3{
 
       <div class="card">
 
-        <h3>My Go-To Notes</h3>
+        <h3>
+          My Go-To Notes
+        </h3>
 
         <div class="field">
-          <label>النوتات المعتمدة التي تشبهني</label>
-          <textarea id="goToNotes" placeholder="مثال: المسك الأبيض، الإيريس، الفانيليا الهادئة..."></textarea>
+
+          <label>
+            النوتات المعتمدة التي تشبهني
+          </label>
+
+          <textarea
+            id="goToNotes"
+            placeholder="مثال: المسك الأبيض، الإيريس، الفانيليا الهادئة..."
+          ></textarea>
+
         </div>
 
-        <h3>My Avoid Notes</h3>
+
+        <h3>
+          My Avoid Notes
+        </h3>
 
         <div class="field">
-          <label>النوتات التي أستبعدها</label>
-          <textarea id="avoidNotes" placeholder="اكتبي النوتات أو الروائح التي لا تناسبكِ..."></textarea>
+
+          <label>
+            النوتات التي أستبعدها
+          </label>
+
+          <textarea
+            id="avoidNotes"
+            placeholder="اكتبي النوتات أو الروائح التي لا تناسبكِ..."
+          ></textarea>
+
         </div>
 
       </div>
@@ -769,21 +1796,43 @@ h3{
     </div>
 
 
-    <div class="card" style="margin-top:20px;">
+    <div
+      class="card"
+      style="margin-top:20px;"
+    >
 
-      <h3>My Non-Negotiable Detail</h3>
+      <h3>
+        My Non-Negotiable Detail
+      </h3>
 
       <div class="field">
-        <label>التفصيلة الصامتة التي لا أتخلى عنها</label>
-        <input id="nonNegotiable" placeholder="مثال: أظافر مرتبة، عطر مسكي، إكسسوار ذهبي...">
+
+        <label>
+          التفصيلة الصامتة التي لا أتخلى عنها
+        </label>
+
+        <input
+          id="nonNegotiable"
+          placeholder="مثال: أظافر مرتبة، عطر مسكي، إكسسوار ذهبي..."
+        >
+
       </div>
+
 
       <div class="quote">
-        تذكري دائماً: أنتِ لا تبحثين عن مجرد رائحة جميلة،
-        بل عن إحساس محدد ينسجم مع بشرتكِ ويرتبط بحضوركِ.
+
+        تذكري دائماً:
+        أنتِ لا تبحثين عن مجرد رائحة جميلة،
+        بل عن إحساس محدد ينسجم مع بشرتكِ
+        ويرتبط بحضوركِ.
+
       </div>
 
-      <button class="btn gold" onclick="saveDNA()">
+
+      <button
+        class="btn gold"
+        onclick="saveDNA()"
+      >
         حفظ ملف هالتي
       </button>
 
@@ -794,155 +1843,299 @@ h3{
 </main>
 
 
-<!-- RITUALS -->
-<main id="rituals" class="screen">
+
+<!-- =========================
+     RITUALS
+========================= -->
+
+<main
+  id="rituals"
+  class="screen"
+>
 
   <section class="container">
 
     <div class="center">
-      <div class="eyebrow">THE VELVET RITUALS</div>
-      <h2>طقوسكِ اليومية</h2>
-      <p class="subtitle" style="margin:auto;">
+
+      <div class="eyebrow">
+        THE VELVET RITUALS
+      </div>
+
+      <h2>
+        طقوسكِ اليومية
+      </h2>
+
+      <p
+        class="subtitle"
+        style="margin:auto;"
+      >
         تفاصيل صغيرة، ولكنها تصنع حضوراً متكاملاً.
       </p>
+
     </div>
 
 
     <div class="grid">
 
+
       <div class="card code-card">
-        <div class="code-number">01</div>
+
+        <div class="code-number">
+          01
+        </div>
+
         <div class="code-content">
-          <h3>THE SIGNATURE SCENT</h3>
+
+          <h3>
+            THE SIGNATURE SCENT
+          </h3>
+
           <p>
             استخدمي مرطباً خالياً من العطر على بشرة ناعمة،
             ثم طبقي العطر على نقاط النبض بدون فرك.
           </p>
+
           <ul class="checklist">
+
             <li>الرقبة</li>
             <li>خلف الأذنين</li>
             <li>أطراف المعصمين</li>
+
           </ul>
+
         </div>
+
       </div>
 
 
       <div class="card code-card">
-        <div class="code-number">02</div>
+
+        <div class="code-number">
+          02
+        </div>
+
         <div class="code-content">
-          <h3>THE 10-MINUTE RESET</h3>
+
+          <h3>
+            THE 10-MINUTE RESET
+          </h3>
+
           <p>
             طقس سريع يمنحكِ إحساساً بالنضارة والاستعداد.
           </p>
+
           <ul class="checklist">
+
             <li>تنظيف وترطيب البشرة</li>
             <li>العناية باليدين والأظافر</li>
             <li>اللمسة النهائية والعطر</li>
+
           </ul>
+
         </div>
+
       </div>
 
 
       <div class="card code-card">
-        <div class="code-number">03</div>
+
+        <div class="code-number">
+          03
+        </div>
+
         <div class="code-content">
-          <h3>THE PRESENCE DETAIL</h3>
+
+          <h3>
+            THE PRESENCE DETAIL
+          </h3>
+
           <p>
-            الأناقة ليست فقط فيما ترتدينه، بل في التفاصيل التي تتركينها خلفكِ.
+            الأناقة ليست فقط فيما ترتدينه،
+            بل في التفاصيل التي تتركينها خلفكِ.
           </p>
+
           <ul class="checklist">
+
             <li>إكسسوار موزون</li>
             <li>هندام مرتب</li>
             <li>نبرة صوت هادئة ومشية واثقة</li>
+
           </ul>
+
         </div>
+
       </div>
 
 
       <div class="card code-card">
-        <div class="code-number">04</div>
+
+        <div class="code-number">
+          04
+        </div>
+
         <div class="code-content">
-          <h3>THE EXIT RITUAL</h3>
+
+          <h3>
+            THE EXIT RITUAL
+          </h3>
+
           <p>
-            جهزي حضوركِ قبل المناسبة بدلاً من الاستعجال في اللحظة الأخيرة.
+            جهزي حضوركِ قبل المناسبة بدلاً من الاستعجال
+            في اللحظة الأخيرة.
           </p>
+
           <ul class="checklist">
+
             <li>تجهيز العباية مسبقاً</li>
             <li>تطبيق Scent Layering</li>
             <li>وضع عطر مصغر في الحقيبة</li>
+
           </ul>
+
         </div>
+
       </div>
 
 
       <div class="card code-card">
-        <div class="code-number">05</div>
+
+        <div class="code-number">
+          05
+        </div>
+
         <div class="code-content">
-          <h3>CAPSULE IDENTITY</h3>
+
+          <h3>
+            CAPSULE IDENTITY
+          </h3>
+
           <p>
-            قللي التشتت من خلال لوحة ألوان وإطلالات واضحة.
+            قللي التشتت من خلال لوحة ألوان
+            وإطلالات واضحة.
           </p>
+
           <ul class="checklist">
+
             <li>لون أساسي</li>
             <li>لون هادئ</li>
             <li>لون إكسسوار</li>
+
           </ul>
+
         </div>
+
       </div>
 
 
       <div class="card code-card">
-        <div class="code-number">06</div>
-        <div class="code-content">
-          <h3>HAIR & FABRIC</h3>
-          <p>
-            أضيفي الرائحة إلى تفاصيلكِ اليومية بطريقة ناعمة ومدروسة.
-          </p>
-          <ul class="checklist">
-            <li>تعطير فرشاة الشعر بدلاً من الرش المباشر</li>
-            <li>تعطير الملابس بحذر حسب نوع القماش</li>
-            <li>اختبار المنتج على جزء غير ظاهر أولاً</li>
-          </ul>
+
+        <div class="code-number">
+          06
         </div>
+
+        <div class="code-content">
+
+          <h3>
+            HAIR & FABRIC
+          </h3>
+
+          <p>
+            أضيفي الرائحة إلى تفاصيلكِ اليومية
+            بطريقة ناعمة ومدروسة.
+          </p>
+
+          <ul class="checklist">
+
+            <li>
+              تعطير فرشاة الشعر بدلاً من الرش المباشر
+            </li>
+
+            <li>
+              تعطير الملابس بحذر حسب نوع القماش
+            </li>
+
+            <li>
+              اختبار المنتج على جزء غير ظاهر أولاً
+            </li>
+
+          </ul>
+
+        </div>
+
       </div>
 
     </div>
 
 
-    <div class="card" style="margin-top:25px;">
+    <div
+      class="card"
+      style="margin-top:25px;"
+    >
 
       <div class="center">
-        <div class="eyebrow">MY SIGNATURE DAY</div>
-        <h2>يومكِ المعتمد</h2>
+
+        <div class="eyebrow">
+          MY SIGNATURE DAY
+        </div>
+
+        <h2>
+          يومكِ المعتمد
+        </h2>
+
       </div>
+
 
       <div class="grid three">
 
+
         <div class="card soft">
-          <h3>Morning Aura</h3>
+
+          <h3>
+            Morning Aura
+          </h3>
+
           <ul class="checklist">
+
             <li>10-Minute Reset</li>
             <li>Scent Layering</li>
             <li>الإكسسوار المعتمد</li>
+
           </ul>
+
         </div>
 
+
         <div class="card soft">
-          <h3>Before Leaving</h3>
+
+          <h3>
+            Before Leaving
+          </h3>
+
           <ul class="checklist">
+
             <li>اللمسة الأخيرة للعطر</li>
             <li>مراجعة الهندام</li>
             <li>العطر المصغر</li>
+
           </ul>
+
         </div>
 
+
         <div class="card soft">
-          <h3>Evening Reset</h3>
+
+          <h3>
+            Evening Reset
+          </h3>
+
           <ul class="checklist">
+
             <li>تنظيف البشرة</li>
             <li>ترطيب اليدين</li>
             <li>رائحة هادئة للمساحة</li>
+
           </ul>
+
         </div>
 
       </div>
@@ -954,150 +2147,318 @@ h3{
 </main>
 
 
-<!-- JOURNEY -->
-<main id="journey" class="screen">
+
+<!-- =========================
+     JOURNEY
+========================= -->
+
+<main
+  id="journey"
+  class="screen"
+>
 
   <section class="container">
 
+
     <div class="center">
-      <div class="eyebrow">YOUR AURA JOURNEY</div>
-      <h2>رحلتكِ خلال 30 يوماً</h2>
-      <p class="subtitle" style="margin:auto;">
-        لا تبحثي عن الكمال. ابني الاستمرارية.
+
+      <div class="eyebrow">
+        YOUR AURA JOURNEY
+      </div>
+
+      <h2>
+        رحلتكِ خلال 30 يوماً
+      </h2>
+
+      <p
+        class="subtitle"
+        style="margin:auto;"
+      >
+        لا تبحثي عن الكمال.
+        ابني الاستمرارية.
       </p>
-    </div>
-
-
-    <div class="card" style="margin-top:35px;">
-
-      <h3>Velvet Aura Starter Kit</h3>
-
-      <ul class="checklist">
-
-        <li>
-          <strong>DAY 1:</strong>
-          اكتشفي نمط هالتكِ وأكملي ملف Profile.
-        </li>
-
-        <li>
-          <strong>DAY 2:</strong>
-          فرزي عطوركِ إلى يومية ومناسبات.
-        </li>
-
-        <li>
-          <strong>DAY 3:</strong>
-          طبقي Scent Layering بعد الاستحمام.
-        </li>
-
-        <li>
-          <strong>DAY 4:</strong>
-          اعتمدي The 10-Minute Reset.
-        </li>
-
-        <li>
-          <strong>DAY 5:</strong>
-          رتبي خزانة عباياتكِ.
-        </li>
-
-        <li>
-          <strong>DAY 6:</strong>
-          طبقي طقس تعطير الشعر والملابس.
-        </li>
-
-        <li>
-          <strong>DAY 7:</strong>
-          قيّمي الفرق في حضوركِ وترتيب يومكِ.
-        </li>
-
-      </ul>
 
     </div>
 
 
-    <div class="card" style="margin-top:25px;">
+    <!-- =========================
+         JOURNEY SUMMARY
+    ========================= -->
 
-      <div class="center">
-        <div class="eyebrow">AURA LEVEL JOURNEY</div>
-        <h2>مستواكِ الحالي</h2>
+    <div class="card journey-summary">
+
+      <div class="journey-top">
+
+        <div>
+
+          <div class="eyebrow">
+            YOUR CURRENT PROGRESS
+          </div>
+
+          <div class="journey-counter">
+
+            اليوم
+            <strong id="currentDayDisplay">
+              1
+            </strong>
+
+            من 30
+
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="eyebrow">
+            TOTAL POINTS
+          </div>
+
+          <div class="journey-counter">
+
+            <strong id="totalPointsDisplay">
+              0
+            </strong>
+
+            pts
+
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="levels">
 
-        <div class="level active-level">
-          <div>
-            <strong>Level 1: Explorer</strong>
-            <p>اكتشاف النمط وبدء أول طقس.</p>
-          </div>
-          <div class="points">+10</div>
-        </div>
+      <div class="journey-progress">
 
-        <div class="level">
-          <div>
-            <strong>Level 2: Refined</strong>
-            <p>الانتظام في الطقوس الأساسية.</p>
-          </div>
-          <div class="points">+20</div>
-        </div>
+        <div
+          id="journeyProgressBar"
+          class="journey-progress-bar"
+        ></div>
 
-        <div class="level">
-          <div>
-            <strong>Level 3: Signature Woman</strong>
-            <p>بناء هوية وخزانة مصغرة.</p>
-          </div>
-          <div class="points">+30</div>
-        </div>
+      </div>
 
-        <div class="level">
-          <div>
-            <strong>Level 4: Velvet Mastery</strong>
-            <p>الأناقة أصبحت طبعاً والرائحة توقيعاً.</p>
-          </div>
-          <div class="points">+50</div>
-        </div>
 
+      <div
+        id="progressText"
+        class="progress-text"
+      >
+        0 من 30 يوماً مكتملة
       </div>
 
     </div>
 
 
-    <div class="card" style="margin-top:25px;">
+
+    <!-- =========================
+         CURRENT DAY
+    ========================= -->
+
+    <div
+      id="currentDayPanel"
+      class="current-day-panel show"
+    >
+
+      <span
+        id="currentDayBadge"
+        class="current-day-badge"
+      >
+        DAY 1
+      </span>
+
+      <h3 id="currentDayTitle">
+        اكتشفي نمط هالتكِ
+      </h3>
+
+      <p id="currentDayDescription">
+        أكملي اختبار Aura Quiz واكتشفي نمط هالتكِ،
+        ثم احفظي ملف Profile الخاص بكِ.
+      </p>
+
+      <div class="day-complete-area">
+
+        <button
+          id="currentDayAction"
+          class="btn gold"
+          onclick="completeCurrentDay()"
+        >
+          إكمال اليوم
+        </button>
+
+        <button
+          id="currentDayGoButton"
+          class="btn light"
+          onclick="openCurrentDay()"
+          style="margin-right:8px;"
+        >
+          ابدئي المهمة
+        </button>
+
+        <div
+          id="completionMessage"
+          class="completion-message"
+        >
+          ✓ تم إكمال هذا اليوم بنجاح
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         30 DAY GRID
+    ========================= -->
+
+    <div
+      class="card"
+      style="margin-top:25px;"
+    >
 
       <div class="center">
 
-        <div class="eyebrow">MY AURA STATEMENT</div>
+        <div class="eyebrow">
+          VELVET AURA STARTER KIT
+        </div>
+
+        <h2>
+          30 يوماً من الأناقة الهادئة
+        </h2>
+
+        <p class="subtitle" style="margin:auto;">
+
+          كل يوم يفتح اليوم الذي يليه.
+          لا تحتاجين لإنجاز كل شيء دفعة واحدة.
+
+        </p>
+
+      </div>
+
+
+      <div
+        id="daysGrid"
+        class="days-grid"
+      ></div>
+
+    </div>
+
+
+
+    <!-- =========================
+         LEVEL JOURNEY
+    ========================= -->
+
+    <div
+      class="card"
+      style="margin-top:25px;"
+    >
+
+      <div class="center">
+
+        <div class="eyebrow">
+          AURA LEVEL JOURNEY
+        </div>
+
+        <h2>
+          مستواكِ الحالي
+        </h2>
+
+        <p
+          id="levelMainMessage"
+          class="subtitle"
+          style="margin:auto;"
+        >
+          أنتِ في بداية الرحلة.
+        </p>
+
+      </div>
+
+
+      <div
+        id="levelsContainer"
+        class="levels"
+      ></div>
+
+
+      <div
+        id="levelInfo"
+        class="level-info"
+      ></div>
+
+    </div>
+
+
+
+    <!-- =========================
+         AURA STATEMENT
+    ========================= -->
+
+    <div
+      class="card"
+      style="margin-top:25px;"
+    >
+
+      <div class="center">
+
+        <div class="eyebrow">
+          MY AURA STATEMENT
+        </div>
 
         <h2>
           اصنعي عبارتكِ الخاصة
         </h2>
 
-        <p class="subtitle" style="margin:auto;">
+        <p
+          class="subtitle"
+          style="margin:auto;"
+        >
           اختصري إحساس هالتكِ في جملة واحدة.
         </p>
 
       </div>
 
+
       <div class="share-card">
 
-        <h3>MY AURA STATEMENT</h3>
+        <h3>
+          MY AURA STATEMENT
+        </h3>
 
-        <div class="gold-line" style="margin-left:auto;margin-right:auto;"></div>
+        <div
+          class="gold-line"
+          style="margin-left:auto;margin-right:auto;"
+        ></div>
+
 
         <div class="field">
+
           <input
             id="auraStatementInput"
             placeholder="My Aura is..."
             oninput="updateStatement()"
           >
+
         </div>
 
-        <div class="statement" id="statementPreview">
+
+        <div
+          class="statement"
+          id="statementPreview"
+        >
           My Aura is: Quietly unforgettable.
         </div>
 
+
         <p style="color:var(--muted);">
-          Because I believe elegance is:<br>
+
+          Because I believe elegance is:
+          <br>
           "Quiet confidence and mindful presence."
+
         </p>
+
 
         <small>
           #VelvetAura • @velvetaura.official
@@ -1108,113 +2469,236 @@ h3{
     </div>
 
 
-    <div class="card" style="margin-top:25px;">
+
+    <!-- =========================
+         VELVET CIRCLE
+    ========================= -->
+
+    <div
+      class="card"
+      style="margin-top:25px;"
+    >
 
       <div class="center">
-        <div class="eyebrow">VELVET CIRCLE</div>
-        <h2>أنتِ الآن جزء من الدائرة</h2>
+
+        <div class="eyebrow">
+          VELVET CIRCLE
+        </div>
+
+        <h2>
+          أنتِ الآن جزء من الدائرة
+        </h2>
+
       </div>
+
 
       <div class="grid three">
 
-        <div class="card soft">
-          <h3>Monthly Aura Notes</h3>
-          <p>تحديثات وتوصيات موسمية للنوتات العطرية.</p>
-        </div>
 
         <div class="card soft">
-          <h3>Seasonal Scent Guides</h3>
-          <p>أدلة موسمية للعطور والتنسيقات.</p>
+
+          <h3>
+            Monthly Aura Notes
+          </h3>
+
+          <p>
+            تحديثات وتوصيات موسمية للنوتات العطرية.
+          </p>
+
         </div>
 
+
         <div class="card soft">
-          <h3>Community Challenges</h3>
-          <p>تحديات تفاعلية لتطوير طقوسكِ.</p>
+
+          <h3>
+            Seasonal Scent Guides
+          </h3>
+
+          <p>
+            أدلة موسمية للعطور والتنسيقات.
+          </p>
+
+        </div>
+
+
+        <div class="card soft">
+
+          <h3>
+            Community Challenges
+          </h3>
+
+          <p>
+            تحديات تفاعلية لتطوير طقوسكِ.
+          </p>
+
         </div>
 
       </div>
 
+
       <div class="quote">
+
         Velvet Aura لا تعلمكِ كيف تبدين مختلفة،
-        بل تساعدكِ على اكتشاف التفاصيل التي تجعل حضوركِ يشبهكِ.
+        بل تساعدكِ على اكتشاف التفاصيل التي تجعل
+        حضوركِ يشبهكِ.
+
       </div>
 
     </div>
+
+
+
+    <!-- =========================
+         RESET JOURNEY
+    ========================= -->
+
+    <div class="reset-box">
+
+      <p>
+        تريدين بدء الرحلة من جديد؟
+      </p>
+
+      <button
+        class="btn danger"
+        onclick="resetJourney()"
+      >
+        إعادة ضبط رحلة الـ30 يوماً
+      </button>
+
+    </div>
+
 
   </section>
 
 </main>
 
 
+
 <footer class="footer">
-  ✦ VELVET AURA — The Art of Quiet Elegance ✦
+
+  ✦ VELVET AURA —
+  The Art of Quiet Elegance ✦
+
 </footer>
+
 
 
 <script>
 
-/* =========================
+
+/* =========================================================
    NAVIGATION
-========================= */
+========================================================= */
 
-function showScreen(screenId, button) {
+function showScreen(screenId, button){
 
-  const screens = document.querySelectorAll(".screen");
+  const screens =
+    document.querySelectorAll(".screen");
 
-  screens.forEach(function(screen) {
+  screens.forEach(function(screen){
+
     screen.classList.remove("active");
+
   });
 
-  const target = document.getElementById(screenId);
 
-  if (target) {
+  const target =
+    document.getElementById(screenId);
+
+
+  if(target){
+
     target.classList.add("active");
+
   }
 
-  const buttons = document.querySelectorAll(".nav-btn");
 
-  buttons.forEach(function(btn) {
+  const buttons =
+    document.querySelectorAll(".nav-btn");
+
+
+  buttons.forEach(function(btn){
+
     btn.classList.remove("active");
+
   });
 
-  if (button) {
+
+  if(button){
+
     button.classList.add("active");
-  } else {
 
-    buttons.forEach(function(btn) {
+  }
+  else{
 
-      const text = btn.textContent.trim().toLowerCase();
+    buttons.forEach(function(btn){
 
-      if (
-        (screenId === "home" && text === "home") ||
-        (screenId === "quiz" && text === "aura quiz") ||
-        (screenId === "dna" && text === "my aura") ||
-        (screenId === "rituals" && text === "rituals") ||
-        (screenId === "journey" && text === "journey")
-      ) {
+      const text =
+        btn.textContent
+          .trim()
+          .toLowerCase();
+
+
+      if(
+        (screenId === "home" &&
+         text === "home")
+
+        ||
+
+        (screenId === "quiz" &&
+         text === "aura quiz")
+
+        ||
+
+        (screenId === "dna" &&
+         text === "my aura")
+
+        ||
+
+        (screenId === "rituals" &&
+         text === "rituals")
+
+        ||
+
+        (screenId === "journey" &&
+         text === "journey")
+      ){
+
         btn.classList.add("active");
+
       }
 
     });
 
   }
 
+
   window.scrollTo({
     top:0,
     behavior:"smooth"
   });
 
+
+  if(screenId === "journey"){
+
+    renderJourney();
+
+  }
+
 }
 
 
-/* =========================
+
+/* =========================================================
    QUIZ
-========================= */
+========================================================= */
 
 const questions = [
 
   {
-    question:"ما هو الانطباع الذي تفضلين تركه عند حضوركِ؟",
+    question:
+      "ما هو الانطباع الذي تفضلين تركه عند حضوركِ؟",
+
     options:[
       ["ناعمة، أنثوية، وهادئة","Silk"],
       ["دافئة، فاخرة، وذات حضور","Amber"],
@@ -1224,7 +2708,9 @@ const questions = [
   },
 
   {
-    question:"أي أجواء تشبه روحكِ أكثر؟",
+    question:
+      "أي أجواء تشبه روحكِ أكثر؟",
+
     options:[
       ["غرفة بيضاء بستائر حريرية","Silk"],
       ["مجلس فاخر بإضاءة دافئة","Amber"],
@@ -1234,7 +2720,9 @@ const questions = [
   },
 
   {
-    question:"أي ملمس يعكس إحساس الفخامة لديكِ؟",
+    question:
+      "أي ملمس يعكس إحساس الفخامة لديكِ؟",
+
     options:[
       ["الحرير الناعم","Silk"],
       ["المخمل الدافئ","Amber"],
@@ -1244,7 +2732,9 @@ const questions = [
   },
 
   {
-    question:"أي نوع من العطور يجذبكِ أكثر؟",
+    question:
+      "أي نوع من العطور يجذبكِ أكثر؟",
+
     options:[
       ["مسكي وناعم","Silk"],
       ["عنبر وفانيليا","Amber"],
@@ -1254,7 +2744,9 @@ const questions = [
   },
 
   {
-    question:"أي وصف أقرب لشخصيتكِ؟",
+    question:
+      "أي وصف أقرب لشخصيتكِ؟",
+
     options:[
       ["رقيقة وهادئة","Silk"],
       ["دافئة وواثقة","Amber"],
@@ -1268,6 +2760,7 @@ const questions = [
 
 let currentQuestion = 0;
 
+
 let scores = {
   Silk:0,
   Amber:0,
@@ -1280,24 +2773,28 @@ const auraData = {
 
   Silk:{
     arabic:"الهالة الحريرية",
+
     description:
       "هالتكِ ناعمة، أنثوية وهادئة. تميلين إلى التفاصيل الرقيقة والروائح النظيفة والمسكية التي تترك أثراً قريباً وراقياً."
   },
 
   Amber:{
     arabic:"الهالة العنبرية",
+
     description:
       "هالتكِ دافئة، فاخرة وذات حضور. تحبين الروائح الغنية واللمسات التي تمنح المكان إحساساً بالدفء والثقة."
   },
 
   Pearl:{
     arabic:"الهالة اللؤلؤية",
+
     description:
       "هالتكِ نظيفة، منعشة وراقية. تحبين البساطة المصقولة والروائح التي تمنح إحساساً بالنقاء والخفة."
   },
 
   Noir:{
     arabic:"الهالة السوداء",
+
     description:
       "هالتكِ غامضة، عميقة ولا تُنسى. تميلين إلى الروائح الخشبية والدافئة والتفاصيل التي تحمل شخصية واضحة."
   }
@@ -1305,17 +2802,34 @@ const auraData = {
 };
 
 
-function loadQuestion() {
+function loadQuestion(){
 
-  const question = questions[currentQuestion];
+  const question =
+    questions[currentQuestion];
 
-  const number = document.getElementById("questionNumber");
 
-  const title = document.getElementById("questionTitle");
+  const number =
+    document.getElementById(
+      "questionNumber"
+    );
 
-  const options = document.getElementById("options");
 
-  const progress = document.getElementById("progressBar");
+  const title =
+    document.getElementById(
+      "questionTitle"
+    );
+
+
+  const options =
+    document.getElementById(
+      "options"
+    );
+
+
+  const progress =
+    document.getElementById(
+      "progressBar"
+    );
 
 
   number.textContent =
@@ -1325,46 +2839,68 @@ function loadQuestion() {
     questions.length;
 
 
-  title.textContent = question.question;
+  title.textContent =
+    question.question;
 
 
   options.innerHTML = "";
 
 
-  question.options.forEach(function(option) {
+  question.options.forEach(
+    function(option){
 
-    const button = document.createElement("button");
+      const button =
+        document.createElement("button");
 
-    button.className = "option";
 
-    button.textContent = option[0];
+      button.className =
+        "option";
 
-    button.onclick = function() {
-      answerQuiz(option[1]);
-    };
 
-    options.appendChild(button);
+      button.textContent =
+        option[0];
 
-  });
+
+      button.onclick =
+        function(){
+
+          answerQuiz(option[1]);
+
+        };
+
+
+      options.appendChild(button);
+
+    }
+  );
 
 
   progress.style.width =
-    ((currentQuestion + 1) / questions.length * 100) + "%";
+    (
+      (currentQuestion + 1) /
+      questions.length *
+      100
+    ) + "%";
 
 }
 
 
-function answerQuiz(type) {
+function answerQuiz(type){
 
   scores[type]++;
 
-  if (currentQuestion < questions.length - 1) {
+
+  if(
+    currentQuestion <
+    questions.length - 1
+  ){
 
     currentQuestion++;
 
     loadQuestion();
 
-  } else {
+  }
+  else{
 
     showQuizResult();
 
@@ -1373,42 +2909,70 @@ function answerQuiz(type) {
 }
 
 
-function showQuizResult() {
+function showQuizResult(){
 
   let winner = "Silk";
 
-  Object.keys(scores).forEach(function(type) {
 
-    if (scores[type] > scores[winner]) {
-      winner = type;
+  Object.keys(scores).forEach(
+    function(type){
+
+      if(
+        scores[type] >
+        scores[winner]
+      ){
+
+        winner = type;
+
+      }
+
     }
-
-  });
-
-
-  const data = auraData[winner];
+  );
 
 
-  document.getElementById("quizBox").style.display = "none";
+  const data =
+    auraData[winner];
 
-  document.getElementById("quizResult").style.display = "block";
 
-  document.getElementById("resultAura").textContent = winner;
+  document.getElementById(
+    "quizBox"
+  ).style.display = "none";
 
-  document.getElementById("resultArabic").textContent = data.arabic;
 
-  document.getElementById("resultDescription").textContent =
+  document.getElementById(
+    "quizResult"
+  ).style.display = "block";
+
+
+  document.getElementById(
+    "resultAura"
+  ).textContent = winner;
+
+
+  document.getElementById(
+    "resultArabic"
+  ).textContent =
+    data.arabic;
+
+
+  document.getElementById(
+    "resultDescription"
+  ).textContent =
     data.description;
 
 
-  localStorage.setItem("velvetAuraResult", winner);
+  localStorage.setItem(
+    "velvetAuraResult",
+    winner
+  );
 
 }
 
 
-function restartQuiz() {
+function restartQuiz(){
 
   currentQuestion = 0;
+
 
   scores = {
     Silk:0,
@@ -1418,66 +2982,97 @@ function restartQuiz() {
   };
 
 
-  document.getElementById("quizBox").style.display = "block";
+  document.getElementById(
+    "quizBox"
+  ).style.display = "block";
 
-  document.getElementById("quizResult").style.display = "none";
+
+  document.getElementById(
+    "quizResult"
+  ).style.display = "none";
+
 
   loadQuestion();
 
 }
 
 
-function goToDNA() {
+function goToDNA(){
 
-  const result = localStorage.getItem("velvetAuraResult");
+  const result =
+    localStorage.getItem(
+      "velvetAuraResult"
+    );
 
-  if (result) {
 
-    document.getElementById("dominantInput").value =
+  if(result){
+
+    document.getElementById(
+      "dominantInput"
+    ).value =
       result + " Aura";
 
   }
+
 
   showScreen("dna");
 
 }
 
 
-/* =========================
+
+/* =========================================================
    DNA
-========================= */
+========================================================= */
 
-function toggleCheck(button) {
+function toggleCheck(button){
 
-  button.classList.toggle("selected");
+  button.classList.toggle(
+    "selected"
+  );
 
 }
 
 
-function saveDNA() {
+function saveDNA(){
 
   const dominant =
-    document.getElementById("dominantInput").value;
+    document.getElementById(
+      "dominantInput"
+    ).value;
+
 
   const goToNotes =
-    document.getElementById("goToNotes").value;
+    document.getElementById(
+      "goToNotes"
+    ).value;
+
 
   const avoidNotes =
-    document.getElementById("avoidNotes").value;
+    document.getElementById(
+      "avoidNotes"
+    ).value;
+
 
   const nonNegotiable =
-    document.getElementById("nonNegotiable").value;
+    document.getElementById(
+      "nonNegotiable"
+    ).value;
 
 
   const dna = {
 
-    dominant:dominant,
+    dominant:
+      dominant,
 
-    goToNotes:goToNotes,
+    goToNotes:
+      goToNotes,
 
-    avoidNotes:avoidNotes,
+    avoidNotes:
+      avoidNotes,
 
-    nonNegotiable:nonNegotiable
+    nonNegotiable:
+      nonNegotiable
 
   };
 
@@ -1488,74 +3083,1680 @@ function saveDNA() {
   );
 
 
-  alert("تم حفظ ملف هالتكِ ✦");
+  alert(
+    "تم حفظ ملف هالتكِ ✦"
+  );
 
 }
 
 
-/* =========================
-   AURA STATEMENT
-========================= */
 
-function updateStatement() {
+/* =========================================================
+   AURA STATEMENT
+========================================================= */
+
+function updateStatement(){
 
   const input =
-    document.getElementById("auraStatementInput");
+    document.getElementById(
+      "auraStatementInput"
+    );
+
 
   const preview =
-    document.getElementById("statementPreview");
+    document.getElementById(
+      "statementPreview"
+    );
 
 
-  const value = input.value.trim();
+  const value =
+    input.value.trim();
 
 
-  if (value) {
+  if(value){
 
     preview.textContent =
-      "My Aura is: " + value;
+      "My Aura is: " +
+      value;
 
-  } else {
+  }
+  else{
 
     preview.textContent =
       "My Aura is: Quietly unforgettable.";
 
   }
 
+
+  localStorage.setItem(
+    "velvetAuraStatement",
+    value
+  );
+
 }
 
 
-/* =========================
-   LOAD SAVED DATA
-========================= */
 
-function loadSavedData() {
+/* =========================================================
+   JOURNEY DATA
+========================================================= */
+
+const journeyDays = [
+
+  {
+    day:1,
+
+    title:
+      "اكتشفي نمط هالتكِ",
+
+    description:
+      "أكملي Aura Quiz واكتشفي نمط هالتكِ، ثم احفظي ملف Profile الخاص بكِ.",
+
+    action:
+      "quiz"
+  },
+
+  {
+    day:2,
+
+    title:
+      "فرزي عطوركِ",
+
+    description:
+      "قسّمي عطوركِ إلى عطور يومية وعطور للمناسبات، واختاري العطور التي تشبه هالتكِ.",
+
+    action:
+      "dna"
+  },
+
+  {
+    day:3,
+
+    title:
+      "Scent Layering",
+
+    description:
+      "طبقي Scent Layering بعد الاستحمام من خلال المرطب ثم العطر بطريقة ناعمة.",
+
+    action:
+      "rituals"
+  },
+
+  {
+    day:4,
+
+    title:
+      "The 10-Minute Reset",
+
+    description:
+      "اعتمدي طقس العشر دقائق: تنظيف، ترطيب، عناية باليدين والأظافر، ثم اللمسة النهائية.",
+
+    action:
+      "rituals"
+  },
+
+  {
+    day:5,
+
+    title:
+      "رتبي خزانة عباياتكِ",
+
+    description:
+      "اختاري القطع الأساسية التي تمثل هويتكِ ورتبيها بحيث تصبح اختياراتكِ أسهل.",
+
+    action:
+      "rituals"
+  },
+
+  {
+    day:6,
+
+    title:
+      "Hair & Fabric",
+
+    description:
+      "طبقي طقس تعطير الشعر والملابس بحذر، واختبري المنتج على جزء غير ظاهر أولاً.",
+
+    action:
+      "rituals"
+  },
+
+  {
+    day:7,
+
+    title:
+      "قيّمي حضوركِ",
+
+    description:
+      "توقفي قليلاً وقيّمي الفرق الذي صنعته الطقوس في حضوركِ وترتيب يومكِ.",
+
+    action:
+      "journey"
+  },
+
+  {
+    day:8,
+
+    title:
+      "ثبتي عطركِ اليومي",
+
+    description:
+      "اختاري عطراً يومياً واحداً يكون الأقرب إلى هويتكِ الجديدة.",
+
+    action:
+      "dna"
+  },
+
+  {
+    day:9,
+
+    title:
+      "اختاري نوتاتكِ المفضلة",
+
+    description:
+      "اكتبي في ملفكِ النوتات التي تريدين أن تصبح جزءاً من هالتكِ.",
+
+    action:
+      "dna"
+  },
+
+  {
+    day:10,
+
+    title:
+      "أول مراجعة",
+
+    description:
+      "راجعي الأيام السابقة واكتبي ما الذي شعرتِ أنه أصبح أسهل أو أكثر وضوحاً.",
+
+    action:
+      "journey"
+  },
+
+  {
+    day:11,
+
+    title:
+      "تفصيلة غير قابلة للتفاوض",
+
+    description:
+      "اختاري تفصيلة واحدة لا تخرجين بدونها: عطر، أظافر، إكسسوار أو ترتيب معين.",
+
+    action:
+      "dna"
+  },
+
+  {
+    day:12,
+
+    title:
+      "Morning Aura",
+
+    description:
+      "ابدئي يومكِ بطقس صباحي قصير ومتكرر يمنحكِ إحساساً بالترتيب.",
+
+    action:
+      "rituals"
+  },
+
+  {
+    day:13,
+
+    title:
+      "Before Leaving",
+
+    description:
+      "قبل الخروج، افحصي هندامكِ والعطر والإكسسوار واللمسة الأخيرة.",
+
+    action:
+      "rituals"
+  },
+
+  {
+    day:14,
+
+    title:
+      "أسبوعان من الاستمرارية",
+
+    description:
+      "احتفلي بالاستمرارية، وليس بالكمال. أنتِ الآن تبنين عادة حقيقية.",
+
+    action:
+      "journey"
+  },
+
+  {
+    day:15,
+
+    title:
+      "ابني Capsule Identity",
+
+    description:
+      "اختاري لوناً أساسياً، لوناً هادئاً ولوناً للإكسسوار يمثل هويتكِ.",
+
+    action:
+      "rituals"
+  },
+
+  {
+    day:16,
+
+    title:
+      "راجعي ما لا يشبهكِ",
+
+    description:
+      "اكتبي الروائح والتفاصيل التي اكتشفتِ أنها لا تناسب هالتكِ.",
+
+    action:
+      "dna"
+  },
+
+  {
+    day:17,
+
+    title:
+      "طبقي Presence Detail",
+
+    description:
+      "ركزي اليوم على مشيتكِ، نبرة صوتكِ، هندامكِ وإكسسواركِ.",
+
+    action:
+      "rituals"
+  },
+
+  {
+    day:18,
+
+    title:
+      "اصنعي Signature Look",
+
+    description:
+      "اختاري إطلالة واحدة تشعرين أنها تمثل Velvet Aura الخاص بكِ.",
+
+    action:
+      "rituals"
+  },
+
+  {
+    day:19,
+
+    title:
+      "Signature Scent",
+
+    description:
+      "طبقي عطركِ المميز على نقاط النبض بدون فرك.",
+
+    action:
+      "rituals"
+  },
+
+  {
+    day:20,
+
+    title:
+      "مراجعة الهوية",
+
+    description:
+      "قارني اختياراتكِ الآن بما كنتِ تختارينه في بداية الرحلة.",
+
+    action:
+      "journey"
+  },
+
+  {
+    day:21,
+
+    title:
+      "ثلاثة أسابيع",
+
+    description:
+      "ثلاثة أسابيع من الاستمرارية. حددي الطقس الذي أصبح جزءاً طبيعياً من يومكِ.",
+
+    action:
+      "journey"
+  },
+
+  {
+    day:22,
+
+    title:
+      "Evening Reset",
+
+    description:
+      "أنهي يومكِ بتنظيف البشرة وترطيب اليدين وصناعة مساحة هادئة.",
+
+    action:
+      "rituals"
+  },
+
+  {
+    day:23,
+
+    title:
+      "جهزي حقيبة العطر",
+
+    description:
+      "اختاري عطراً مصغراً أو وسيلة عملية للحفاظ على حضوركِ خلال اليوم.",
+
+    action:
+      "rituals"
+  },
+
+  {
+    day:24,
+
+    title:
+      "Signature Woman",
+
+    description:
+      "أصبحت هويتكِ أوضح. راجعي DNA الخاص بكِ واجعليه يعكسكِ بدقة.",
+
+    action:
+      "dna"
+  },
+
+  {
+    day:25,
+
+    title:
+      "طقس الخروج",
+
+    description:
+      "طبقي Exit Ritual كاملاً قبل مناسبة أو خروج مهم.",
+
+    action:
+      "rituals"
+  },
+
+  {
+    day:26,
+
+    title:
+      "ثبتي عاداتكِ",
+
+    description:
+      "اختاري 3 طقوس فقط تريدين الاحتفاظ بها بعد انتهاء التحدي.",
+
+    action:
+      "journey"
+  },
+
+  {
+    day:27,
+
+    title:
+      "راجعي عطركِ",
+
+    description:
+      "هل ما زال عطركِ المميز يعكسكِ؟ عدّلي اختياراتكِ إذا احتجتِ.",
+
+    action:
+      "dna"
+  },
+
+  {
+    day:28,
+
+    title:
+      "Velvet Presence",
+
+    description:
+      "اليوم ركزي على الحضور الهادئ: لا استعجال، لا مبالغة، فقط تفاصيل مدروسة.",
+
+    action:
+      "rituals"
+  },
+
+  {
+    day:29,
+
+    title:
+      "اصنعي Aura Statement",
+
+    description:
+      "اكتبي جملة واحدة تختصر هويتكِ الجديدة داخل Velvet Aura.",
+
+    action:
+      "journey"
+  },
+
+  {
+    day:30,
+
+    title:
+      "Velvet Mastery",
+
+    description:
+      "أكملي الرحلة. أصبحت الأناقة الهادئة جزءاً من طريقتكِ الخاصة.",
+
+    action:
+      "journey"
+  }
+
+];
+
+
+
+/* =========================================================
+   LEVEL DATA
+========================================================= */
+
+const levels = [
+
+  {
+    level:1,
+
+    title:
+      "Level 1: Explorer",
+
+    description:
+      "اكتشاف النمط وبدء أول طقس.",
+
+    required:0,
+
+    points:10
+  },
+
+  {
+    level:2,
+
+    title:
+      "Level 2: Refined",
+
+    description:
+      "الانتظام في الطقوس الأساسية.",
+
+    required:8,
+
+    points:20
+  },
+
+  {
+    level:3,
+
+    title:
+      "Level 3: Signature Woman",
+
+    description:
+      "بناء هوية وخزانة مصغرة.",
+
+    required:15,
+
+    points:30
+  },
+
+  {
+    level:4,
+
+    title:
+      "Level 4: Velvet Mastery",
+
+    description:
+      "الأناقة أصبحت طبعاً والرائحة توقيعاً.",
+
+    required:24,
+
+    points:50
+  }
+
+];
+
+
+
+/* =========================================================
+   JOURNEY STATE
+========================================================= */
+
+let journeyState = {
+
+  completedDays:[],
+
+  currentDay:1
+
+};
+
+
+
+function loadJourneyState(){
+
+  const saved =
+    localStorage.getItem(
+      "velvetAuraJourney"
+    );
+
+
+  if(saved){
+
+    try{
+
+      const parsed =
+        JSON.parse(saved);
+
+
+      if(
+        parsed &&
+        Array.isArray(
+          parsed.completedDays
+        )
+      ){
+
+        journeyState.completedDays =
+          parsed.completedDays;
+
+      }
+
+    }
+    catch(error){
+
+      console.log(
+        "Could not load journey."
+      );
+
+    }
+
+  }
+
+
+  updateCurrentDay();
+
+}
+
+
+
+function saveJourneyState(){
+
+  localStorage.setItem(
+    "velvetAuraJourney",
+    JSON.stringify(
+      journeyState
+    )
+  );
+
+}
+
+
+
+/* =========================================================
+   CURRENT DAY
+========================================================= */
+
+function updateCurrentDay(){
+
+  const completed =
+    journeyState.completedDays;
+
+
+  let nextDay = 1;
+
+
+  while(
+    completed.includes(nextDay) &&
+    nextDay <= 30
+  ){
+
+    nextDay++;
+
+  }
+
+
+  if(nextDay > 30){
+
+    journeyState.currentDay = 30;
+
+  }
+  else{
+
+    journeyState.currentDay =
+      nextDay;
+
+  }
+
+
+  saveJourneyState();
+
+}
+
+
+
+function getCurrentDay(){
+
+  updateCurrentDay();
+
+  return journeyState.currentDay;
+
+}
+
+
+
+/* =========================================================
+   IS DAY UNLOCKED?
+========================================================= */
+
+function isDayUnlocked(dayNumber){
+
+  if(dayNumber === 1){
+
+    return true;
+
+  }
+
+
+  return journeyState.completedDays.includes(
+    dayNumber - 1
+  );
+
+}
+
+
+
+/* =========================================================
+   COMPLETE DAY
+========================================================= */
+
+function completeDay(dayNumber){
+
+  if(!isDayUnlocked(dayNumber)){
+
+    alert(
+      "هذا اليوم مقفل حالياً. أكملي اليوم السابق أولاً ✦"
+    );
+
+    return;
+
+  }
+
+
+  if(
+    !journeyState.completedDays.includes(
+      dayNumber
+    )
+  ){
+
+    journeyState.completedDays.push(
+      dayNumber
+    );
+
+
+    journeyState.completedDays.sort(
+      function(a,b){
+        return a-b;
+      }
+    );
+
+  }
+
+
+  updateCurrentDay();
+
+  saveJourneyState();
+
+  renderJourney();
+
+
+  if(dayNumber < 30){
+
+    setTimeout(
+      function(){
+
+        alert(
+          "أحسنتِ ✦\n\n" +
+          "تم إكمال اليوم " +
+          dayNumber +
+          ".\n" +
+          "اليوم " +
+          (dayNumber + 1) +
+          " أصبح مفتوحاً الآن."
+        );
+
+      },
+      100
+    );
+
+  }
+  else{
+
+    setTimeout(
+      function(){
+
+        alert(
+          "مبروك ✦\n\n" +
+          "لقد أكملتِ رحلة Velvet Aura كاملة.\n" +
+          "وصلتِ إلى Velvet Mastery."
+        );
+
+      },
+      100
+    );
+
+  }
+
+}
+
+
+
+/* =========================================================
+   COMPLETE CURRENT DAY
+========================================================= */
+
+function completeCurrentDay(){
+
+  const day =
+    getCurrentDay();
+
+
+  completeDay(day);
+
+}
+
+
+
+/* =========================================================
+   OPEN DAY
+========================================================= */
+
+function openDay(dayNumber){
+
+  if(!isDayUnlocked(dayNumber)){
+
+    alert(
+      "هذا اليوم ما زال مقفلاً ✦\n\n" +
+      "أكملي اليوم السابق أولاً."
+    );
+
+    return;
+
+  }
+
+
+  const day =
+    journeyDays[dayNumber - 1];
+
+
+  if(!day){
+
+    return;
+
+  }
+
+
+  if(day.action === "quiz"){
+
+    showScreen("quiz");
+
+  }
+  else if(day.action === "dna"){
+
+    showScreen("dna");
+
+  }
+  else if(day.action === "rituals"){
+
+    showScreen("rituals");
+
+  }
+  else{
+
+    showScreen("journey");
+
+  }
+
+}
+
+
+
+/* =========================================================
+   OPEN CURRENT DAY
+========================================================= */
+
+function openCurrentDay(){
+
+  openDay(
+    getCurrentDay()
+  );
+
+}
+
+
+
+/* =========================================================
+   RENDER DAYS
+========================================================= */
+
+function renderDays(){
+
+  const container =
+    document.getElementById(
+      "daysGrid"
+    );
+
+
+  container.innerHTML = "";
+
+
+  const currentDay =
+    getCurrentDay();
+
+
+  journeyDays.forEach(
+    function(day){
+
+      const completed =
+        journeyState.completedDays.includes(
+          day.day
+        );
+
+
+      const unlocked =
+        isDayUnlocked(
+          day.day
+        );
+
+
+      const isCurrent =
+        day.day === currentDay &&
+        !completed;
+
+
+      const card =
+        document.createElement(
+          "div"
+        );
+
+
+      card.className =
+        "day-card";
+
+
+      if(!unlocked){
+
+        card.classList.add(
+          "locked"
+        );
+
+      }
+
+
+      if(unlocked){
+
+        card.classList.add(
+          "available"
+        );
+
+      }
+
+
+      if(isCurrent){
+
+        card.classList.add(
+          "current"
+        );
+
+      }
+
+
+      if(completed){
+
+        card.classList.add(
+          "completed"
+        );
+
+      }
+
+
+      let statusHTML = "";
+
+
+      if(completed){
+
+        statusHTML =
+          `
+          <div class="day-status status-completed">
+            ✓ مكتمل
+          </div>
+          `;
+
+      }
+      else if(unlocked){
+
+        statusHTML =
+          `
+          <div class="day-status status-ready">
+            ✦ جاهز للبدء
+          </div>
+          `;
+
+      }
+      else{
+
+        statusHTML =
+          `
+          <div class="day-status status-locked">
+            🔒 مقفل — أكملي اليوم السابق
+          </div>
+          `;
+
+      }
+
+
+      let buttonText =
+        "ابدئي اليوم";
+
+
+      if(completed){
+
+        buttonText =
+          "✓ تم الإكمال";
+
+      }
+      else if(!unlocked){
+
+        buttonText =
+          "مقفل";
+
+      }
+
+
+      card.innerHTML =
+        `
+
+        <div class="day-number">
+          DAY ${day.day}
+        </div>
+
+        <h3>
+          ${day.title}
+        </h3>
+
+        <p>
+          ${day.description}
+        </p>
+
+        ${statusHTML}
+
+        <button
+          class="day-btn ${
+            completed
+              ? "completed-btn"
+              : ""
+          }"
+          ${
+            !unlocked
+              ? "disabled"
+              : ""
+          }
+          onclick="handleDayButton(${day.day})"
+        >
+          ${buttonText}
+        </button>
+
+        `;
+
+
+      container.appendChild(card);
+
+    }
+  );
+
+}
+
+
+
+/* =========================================================
+   HANDLE DAY BUTTON
+========================================================= */
+
+function handleDayButton(dayNumber){
+
+  const completed =
+    journeyState.completedDays.includes(
+      dayNumber
+    );
+
+
+  if(completed){
+
+    openDay(dayNumber);
+
+    return;
+
+  }
+
+
+  if(
+    !isDayUnlocked(dayNumber)
+  ){
+
+    alert(
+      "هذا اليوم مقفل حالياً ✦\n\n" +
+      "أكملي اليوم السابق أولاً."
+    );
+
+    return;
+
+  }
+
+
+  openDay(dayNumber);
+
+
+  if(
+    dayNumber ===
+    getCurrentDay()
+  ){
+
+    setTimeout(
+      function(){
+
+        const panel =
+          document.getElementById(
+            "currentDayPanel"
+          );
+
+
+        if(panel){
+
+          panel.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+          });
+
+        }
+
+      },
+      300
+    );
+
+  }
+
+}
+
+
+
+/* =========================================================
+   RENDER CURRENT DAY PANEL
+========================================================= */
+
+function renderCurrentDay(){
+
+  const currentDay =
+    getCurrentDay();
+
+
+  const day =
+    journeyDays[
+      currentDay - 1
+    ];
+
+
+  if(!day){
+
+    return;
+
+  }
+
+
+  const completed =
+    journeyState.completedDays.includes(
+      currentDay
+    );
+
+
+  document.getElementById(
+    "currentDayBadge"
+  ).textContent =
+    "DAY " + currentDay;
+
+
+  document.getElementById(
+    "currentDayTitle"
+  ).textContent =
+    day.title;
+
+
+  document.getElementById(
+    "currentDayDescription"
+  ).textContent =
+    day.description;
+
+
+  const actionButton =
+    document.getElementById(
+      "currentDayAction"
+    );
+
+
+  const goButton =
+    document.getElementById(
+      "currentDayGoButton"
+    );
+
+
+  const message =
+    document.getElementById(
+      "completionMessage"
+    );
+
+
+  if(completed){
+
+    actionButton.disabled = true;
+
+    actionButton.textContent =
+      "✓ اليوم مكتمل";
+
+
+    goButton.textContent =
+      "إعادة فتح المهمة";
+
+
+    message.classList.add(
+      "show"
+    );
+
+  }
+  else{
+
+    actionButton.disabled = false;
+
+    actionButton.textContent =
+      "إكمال اليوم";
+
+
+    goButton.textContent =
+      "ابدئي المهمة";
+
+
+    message.classList.remove(
+      "show"
+    );
+
+  }
+
+}
+
+
+
+/* =========================================================
+   POINTS
+========================================================= */
+
+function calculatePoints(){
+
+  let points = 0;
+
+
+  journeyState.completedDays.forEach(
+    function(day){
+
+      if(day <= 30){
+
+        points += 5;
+
+      }
+
+    }
+  );
+
+
+  if(
+    journeyState.completedDays.length >= 8
+  ){
+
+    points += 20;
+
+  }
+
+
+  if(
+    journeyState.completedDays.length >= 15
+  ){
+
+    points += 30;
+
+  }
+
+
+  if(
+    journeyState.completedDays.length >= 24
+  ){
+
+    points += 50;
+
+  }
+
+
+  if(
+    journeyState.completedDays.length === 30
+  ){
+
+    points += 100;
+
+  }
+
+
+  return points;
+
+}
+
+
+
+/* =========================================================
+   CURRENT LEVEL
+========================================================= */
+
+function getCurrentLevel(){
+
+  const completedCount =
+    journeyState.completedDays.length;
+
+
+  let current = levels[0];
+
+
+  levels.forEach(
+    function(level){
+
+      if(
+        completedCount >=
+        level.required
+      ){
+
+        current = level;
+
+      }
+
+    }
+  );
+
+
+  return current;
+
+}
+
+
+
+/* =========================================================
+   RENDER LEVELS
+========================================================= */
+
+function renderLevels(){
+
+  const container =
+    document.getElementById(
+      "levelsContainer"
+    );
+
+
+  container.innerHTML = "";
+
+
+  const completedCount =
+    journeyState.completedDays.length;
+
+
+  const currentLevel =
+    getCurrentLevel();
+
+
+  levels.forEach(
+    function(level){
+
+      const isCurrent =
+        currentLevel.level ===
+        level.level;
+
+
+      const isCompleted =
+        completedCount >=
+        level.required &&
+        (
+          level.level <
+          currentLevel.level
+        );
+
+
+      const isLocked =
+        completedCount <
+        level.required;
+
+
+      const element =
+        document.createElement(
+          "div"
+        );
+
+
+      element.className =
+        "level";
+
+
+      if(isLocked){
+
+        element.classList.add(
+          "locked-level"
+        );
+
+      }
+
+
+      if(isCurrent){
+
+        element.classList.add(
+          "active-level"
+        );
+
+      }
+
+
+      if(isCompleted){
+
+        element.classList.add(
+          "completed-level"
+        );
+
+      }
+
+
+      let badge =
+        "";
+
+
+      if(isCompleted){
+
+        badge =
+          `
+          <span class="level-badge badge-completed">
+            ✓ COMPLETED
+          </span>
+          `;
+
+      }
+      else if(isCurrent){
+
+        badge =
+          `
+          <span class="level-badge badge-active">
+            CURRENT LEVEL
+          </span>
+          `;
+
+      }
+      else{
+
+        badge =
+          `
+          <span class="level-badge badge-locked">
+            🔒 LOCKED
+          </span>
+          `;
+
+      }
+
+
+      element.innerHTML =
+        `
+
+        <div>
+
+          ${badge}
+
+          <div class="level-title">
+            ${level.title}
+          </div>
+
+          <p class="level-description">
+            ${level.description}
+          </p>
+
+          <small>
+            يفتح عند إكمال ${level.required} يوماً
+          </small>
+
+        </div>
+
+        <div class="level-right">
+
+          <div class="points">
+            +${level.points}
+          </div>
+
+          <small>
+            LEVEL ${level.level}
+          </small>
+
+        </div>
+
+        `;
+
+
+      container.appendChild(
+        element
+      );
+
+    }
+  );
+
+
+  const message =
+    document.getElementById(
+      "levelMainMessage"
+    );
+
+
+  if(completedCount === 0){
+
+    message.textContent =
+      "أنتِ في بداية الرحلة. اليوم الأول ينتظركِ ✦";
+
+  }
+  else if(completedCount < 8){
+
+    message.textContent =
+      "أنتِ Explorer. أكملي حتى اليوم 8 لفتح Refined.";
+
+  }
+  else if(completedCount < 15){
+
+    message.textContent =
+      "أصبحتِ Refined. الخطوة التالية: Signature Woman.";
+
+  }
+  else if(completedCount < 24){
+
+    message.textContent =
+      "أصبحتِ Signature Woman. اقتربتِ من Velvet Mastery.";
+
+  }
+  else if(completedCount < 30){
+
+    message.textContent =
+      "أصبحتِ Velvet Mastery. بقيت اللمسات الأخيرة لإكمال الرحلة.";
+
+  }
+  else{
+
+    message.textContent =
+      "مبروك. أكملتِ رحلة Velvet Aura كاملة ✦";
+
+  }
+
+
+  document.getElementById(
+    "levelInfo"
+  ).innerHTML =
+    `
+      مستواكِ الحالي:
+      <strong>
+        ${currentLevel.title}
+      </strong>
+      <br>
+      ${completedCount} من 30 يوماً مكتملة.
+    `;
+
+}
+
+
+
+/* =========================================================
+   RENDER JOURNEY
+========================================================= */
+
+function renderJourney(){
+
+  updateCurrentDay();
+
+
+  const completedCount =
+    journeyState.completedDays.length;
+
+
+  const currentDay =
+    getCurrentDay();
+
+
+  const totalPoints =
+    calculatePoints();
+
+
+  const percentage =
+    (
+      completedCount /
+      30 *
+      100
+    );
+
+
+  document.getElementById(
+    "currentDayDisplay"
+  ).textContent =
+    currentDay;
+
+
+  document.getElementById(
+    "totalPointsDisplay"
+  ).textContent =
+    totalPoints;
+
+
+  document.getElementById(
+    "progressText"
+  ).textContent =
+    completedCount +
+    " من 30 يوماً مكتملة";
+
+
+  document.getElementById(
+    "journeyProgressBar"
+  ).style.width =
+    percentage + "%";
+
+
+  renderCurrentDay();
+
+  renderDays();
+
+  renderLevels();
+
+}
+
+
+
+/* =========================================================
+   RESET JOURNEY
+========================================================= */
+
+function resetJourney(){
+
+  const confirmed =
+    confirm(
+      "هل أنتِ متأكدة أنكِ تريدين إعادة رحلة الـ30 يوماً من البداية؟\n\n" +
+      "سيتم حذف الأيام المكتملة والنقاط والمستوى."
+    );
+
+
+  if(!confirmed){
+
+    return;
+
+  }
+
+
+  journeyState = {
+
+    completedDays:[],
+
+    currentDay:1
+
+  };
+
+
+  localStorage.removeItem(
+    "velvetAuraJourney"
+  );
+
+
+  renderJourney();
+
+
+  alert(
+    "تمت إعادة الرحلة إلى اليوم الأول ✦"
+  );
+
+}
+
+
+
+/* =========================================================
+   LOAD SAVED DATA
+========================================================= */
+
+function loadSavedData(){
 
   const savedDNA =
-    localStorage.getItem("velvetAuraDNA");
+    localStorage.getItem(
+      "velvetAuraDNA"
+    );
 
 
-  if (savedDNA) {
+  if(savedDNA){
 
-    try {
+    try{
 
-      const dna = JSON.parse(savedDNA);
+      const dna =
+        JSON.parse(
+          savedDNA
+        );
 
 
-      document.getElementById("dominantInput").value =
+      document.getElementById(
+        "dominantInput"
+      ).value =
         dna.dominant || "";
 
-      document.getElementById("goToNotes").value =
+
+      document.getElementById(
+        "goToNotes"
+      ).value =
         dna.goToNotes || "";
 
-      document.getElementById("avoidNotes").value =
+
+      document.getElementById(
+        "avoidNotes"
+      ).value =
         dna.avoidNotes || "";
 
-      document.getElementById("nonNegotiable").value =
+
+      document.getElementById(
+        "nonNegotiable"
+      ).value =
         dna.nonNegotiable || "";
 
-    } catch(error) {
+    }
+    catch(error){
 
-      console.log("Could not load saved DNA.");
+      console.log(
+        "Could not load saved DNA."
+      );
 
     }
 
@@ -1563,33 +4764,65 @@ function loadSavedData() {
 
 
   const savedResult =
-    localStorage.getItem("velvetAuraResult");
+    localStorage.getItem(
+      "velvetAuraResult"
+    );
 
 
-  if (savedResult) {
+  if(savedResult){
 
-    document.getElementById("dominantInput").value =
+    document.getElementById(
+      "dominantInput"
+    ).value =
       savedResult + " Aura";
+
+  }
+
+
+  const savedStatement =
+    localStorage.getItem(
+      "velvetAuraStatement"
+    );
+
+
+  if(savedStatement){
+
+    document.getElementById(
+      "auraStatementInput"
+    ).value =
+      savedStatement;
+
+
+    updateStatement();
 
   }
 
 }
 
 
-/* =========================
+
+/* =========================================================
    START APP
-========================= */
+========================================================= */
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener(
+  "DOMContentLoaded",
+  function(){
 
-  loadQuestion();
+    loadQuestion();
 
-  loadSavedData();
+    loadSavedData();
 
-});
+    loadJourneyState();
+
+    renderJourney();
+
+  }
+);
 
 </script>
 
+
 </body>
+
 </html>
-```

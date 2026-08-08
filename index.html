@@ -1,1517 +1,908 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velvet Aura — The Signature Ritual | Digital Experience</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velvet Aura — The Signature Ritual</title>
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        warmivory: '#FAF5F0',
-                        pearlwhite: '#FFF9F5',
-                        dustyrose: '#D8A7A0',
-                        champagnegold: '#C8A45D',
-                        warmespresso: '#4A403A',
-                        softnude: '#E7D6CC',
-                        softblush: '#F3E8E3'
-                    },
-                    fontFamily: {
-                        cormorant: ['"Cormorant Garamond"', 'serif'],
-                        cairo: ['"Cairo"', 'sans-serif'],
-                        tajawal: ['"Tajawal"', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            font-family: 'Cairo', 'Tajawal', sans-serif;
-            background-color: #FAF5F0;
-            color: #4A403A;
-            background-image: radial-gradient(#E7D6CC 0.4px, transparent 0.4px);
-            background-size: 22px 22px;
-        }
-        .pearl-card {
-            background-color: #FFF9F5;
-            box-shadow: 0 15px 35px rgba(74, 64, 58, 0.04);
-            border: 1px solid #E7D6CC;
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 5px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #FAF5F0;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #C8A45D;
-            border-radius: 4px;
-        }
-        .gold-divider {
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: #C8A45D;
-            font-size: 0.75rem;
-            margin: 1.25rem 0;
-        }
-        .gold-divider::before, .gold-divider::after {
-            content: '';
-            flex: 1;
-            border-bottom: 1px solid #E7D6CC;
-        }
-        .gold-divider:not(:empty)::before {
-            margin-left: .75em;
-        }
-        .gold-divider:not(:empty)::after {
-            margin-right: .75em;
-        }
-    </style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Playfair+Display:wght@400;500;600&family=Tajawal:wght@300;400;500;700&display=swap');
+
+:root{
+  --cream:#F8F2EA;
+  --ivory:#FFFDFC;
+  --rose:#D8B7B1;
+  --rose-dark:#9B706D;
+  --gold:#B99A68;
+  --gold-light:#D8C49A;
+  --brown:#4A3936;
+  --text:#403432;
+  --muted:#887672;
+  --line:#E7D8D0;
+  --shadow:0 20px 60px rgba(80,55,48,.10);
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--text);
+  font-family:Tajawal,Arial,sans-serif;
+}
+
+button{
+  font-family:inherit;
+  cursor:pointer;
+}
+
+.app{
+  min-height:100vh;
+}
+
+/* NAVIGATION */
+.nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:100;
+  height:72px;
+  background:rgba(255,253,252,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 6%;
+}
+
+.logo{
+  font-family:"Playfair Display",serif;
+  letter-spacing:3px;
+  color:var(--brown);
+  font-size:21px;
+}
+
+.nav button{
+  border:0;
+  background:transparent;
+  color:var(--muted);
+  margin-right:18px;
+}
+
+.nav .active{
+  color:var(--rose-dark);
+}
+
+/* GENERAL */
+.screen{
+  min-height:100vh;
+  padding:120px 7% 80px;
+  display:none;
+}
+
+.screen.active{
+  display:block;
+}
+
+.container{
+  max-width:1050px;
+  margin:auto;
+}
+
+.eyebrow{
+  color:var(--gold);
+  letter-spacing:3px;
+  font-size:12px;
+  text-align:center;
+  margin-bottom:22px;
+}
+
+h1,h2,h3{
+  font-family:"Cormorant Garamond","Playfair Display",serif;
+  font-weight:500;
+}
+
+h1{
+  font-size:clamp(52px,9vw,100px);
+  letter-spacing:4px;
+  margin:10px 0;
+}
+
+h2{
+  font-size:46px;
+  margin:10px 0 20px;
+  text-align:center;
+}
+
+h3{
+  font-size:27px;
+  margin:0 0 10px;
+}
+
+p{
+  line-height:2;
+  font-weight:300;
+}
+
+.center{text-align:center}
+
+.gold-line{
+  width:80px;
+  height:1px;
+  background:var(--gold);
+  margin:25px auto;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  padding:150px 7% 80px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(216,183,177,.20),transparent 30%),
+    radial-gradient(circle at 80% 70%,rgba(185,154,104,.12),transparent 30%),
+    var(--cream);
+}
+
+.hero-inner{
+  max-width:900px;
+}
+
+.hero-sub{
+  font-family:"Playfair Display",serif;
+  font-size:25px;
+  color:var(--rose-dark);
+  letter-spacing:1px;
+}
+
+.hero-ar{
+  max-width:650px;
+  margin:25px auto;
+  font-size:18px;
+  color:var(--muted);
+}
+
+.btn{
+  display:inline-block;
+  border:1px solid var(--rose-dark);
+  background:var(--rose-dark);
+  color:white;
+  padding:15px 34px;
+  border-radius:2px;
+  transition:.25s;
+  margin:8px;
+}
+
+.btn:hover{
+  background:var(--brown);
+  transform:translateY(-2px);
+}
+
+.btn-outline{
+  background:transparent;
+  color:var(--rose-dark);
+}
+
+/* CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px;
+  margin-top:35px;
+}
+
+.card{
+  background:rgba(255,253,252,.82);
+  border:1px solid var(--line);
+  padding:30px;
+  box-shadow:var(--shadow);
+}
+
+.card-number{
+  color:var(--gold);
+  font-family:"Playfair Display",serif;
+  font-size:24px;
+}
+
+.card p{
+  color:var(--muted);
+}
+
+/* QUIZ */
+.quiz-card{
+  max-width:800px;
+  margin:30px auto;
+  background:var(--ivory);
+  border:1px solid var(--line);
+  padding:35px;
+  box-shadow:var(--shadow);
+}
+
+.progress{
+  height:4px;
+  background:#eaded7;
+  margin-bottom:30px;
+}
+
+.progress span{
+  display:block;
+  height:100%;
+  background:var(--gold);
+  width:16.66%;
+  transition:.3s;
+}
+
+.question{
+  font-size:25px;
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.option{
+  width:100%;
+  text-align:right;
+  padding:17px;
+  margin:10px 0;
+  border:1px solid var(--line);
+  background:#fffaf7;
+  color:var(--text);
+  transition:.2s;
+}
+
+.option:hover{
+  border-color:var(--gold);
+  background:#f9eee9;
+}
+
+/* RESULT */
+.result{
+  max-width:850px;
+  margin:auto;
+  text-align:center;
+}
+
+.aura-badge{
+  width:145px;
+  height:145px;
+  margin:30px auto;
+  border-radius:50%;
+  background:linear-gradient(145deg,#e7c9c3,#b8948e);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-family:"Playfair Display",serif;
+  font-size:24px;
+  letter-spacing:2px;
+  box-shadow:0 20px 50px rgba(130,90,85,.25);
+}
+
+.result-box{
+  background:var(--ivory);
+  border:1px solid var(--line);
+  padding:30px;
+  text-align:right;
+  margin-top:30px;
+}
+
+/* TRACKER */
+.tracker{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:8px;
+  margin-top:30px;
+}
+
+.day{
+  background:var(--ivory);
+  border:1px solid var(--line);
+  padding:15px 5px;
+  text-align:center;
+  cursor:pointer;
+}
+
+.day.done{
+  background:#d9c2bc;
+  color:white;
+}
+
+/* PROFILE */
+.field{
+  margin:20px 0;
+}
+
+.field label{
+  display:block;
+  margin-bottom:8px;
+  color:var(--muted);
+}
+
+.field input,.field textarea{
+  width:100%;
+  border:1px solid var(--line);
+  background:#fffdfb;
+  padding:14px;
+  font-family:inherit;
+  color:var(--text);
+}
+
+.field textarea{
+  min-height:100px;
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  padding:50px 20px;
+  color:var(--muted);
+  border-top:1px solid var(--line);
+  margin-top:50px;
+}
+
+.footer strong{
+  color:var(--rose-dark);
+}
+
+/* MOBILE */
+@media(max-width:650px){
+  .nav{
+    height:62px;
+    padding:0 4%;
+  }
+
+  .nav button{
+    font-size:12px;
+    margin-right:6px;
+  }
+
+  .logo{
+    font-size:16px;
+  }
+
+  .screen{
+    padding:100px 5% 60px;
+  }
+
+  h2{
+    font-size:37px;
+  }
+
+  .hero{
+    padding:120px 6% 60px;
+  }
+
+  .tracker{
+    grid-template-columns:repeat(4,1fr);
+  }
+}
+</style>
 </head>
 
-<body class="bg-warmivory text-warmespresso min-h-screen flex flex-col antialiased">
+<body>
 
-    <!-- Header Navigation -->
-    <header class="bg-pearlwhite border-b border-softnude px-6 py-4 flex flex-wrap justify-between items-center gap-4 sticky top-0 z-50 shadow-sm">
-        <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full border border-champagnegold/60 flex items-center justify-center bg-warmivory shadow-inner cursor-pointer" onclick="displayPage(0)">
-                <span class="font-cormorant text-champagnegold font-bold text-xl tracking-wider">VA</span>
-            </div>
-            <div>
-                <h1 class="font-cormorant font-bold text-xl tracking-widest text-warmespresso cursor-pointer" onclick="displayPage(0)">VELVET AURA</h1>
-                <p class="text-xs text-dustyrose font-light">The Signature Ritual • Interactive Digital Asset</p>
-            </div>
-        </div>
+<div class="app">
 
-        <!-- Global Actions -->
-        <div class="flex items-center gap-3 flex-wrap">
-            <button onclick="toggleSidebar()" class="md:hidden px-3 py-1.5 rounded-full text-xs font-bold bg-softblush text-warmespresso border border-softnude">
-                <i class="fa-solid fa-bars"></i> الفهرس
-            </button>
-            <button onclick="copyFullDocument()" class="px-4 py-2 rounded-full text-xs font-bold bg-champagnegold text-pearlwhite hover:bg-amber-700 transition shadow-md flex items-center gap-2">
-                <i class="fa-solid fa-copy"></i>
-                <span class="hidden sm:inline">نسخ المحتوى الشامل (25 صفحة)</span>
-                <span class="sm:hidden">نسخ النص</span>
-            </button>
-        </div>
-    </header>
+<nav class="nav">
+  <div class="logo">VELVET AURA</div>
+  <div>
+    <button onclick="showPage('home')" class="active">Home</button>
+    <button onclick="showPage('ritual')">Ritual</button>
+    <button onclick="showPage('profile')">My Aura</button>
+  </div>
+</nav>
 
-    <!-- Main Workspace -->
-    <div class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-8 grid grid-cols-1 md:grid-cols-12 gap-6 overflow-hidden">
+<!-- HOME -->
+<section id="home" class="hero">
+  <div class="hero-inner">
 
-        <!-- Navigation Index (Left Panel) -->
-        <aside id="sidebarNav" class="hidden md:flex md:col-span-4 bg-pearlwhite border border-softnude rounded-2xl flex-col h-[80vh] custom-scrollbar overflow-y-auto shadow-sm">
-            <div class="p-4 border-b border-softnude sticky top-0 bg-pearlwhite z-10 flex justify-between items-center">
-                <div>
-                    <h2 class="text-xs font-bold text-champagnegold uppercase tracking-widest">فهرس الطقوس والأنظمة</h2>
-                    <p class="text-[11px] text-warmespresso/60 mt-0.5">انقري للتنقل السريع والمعاينة</p>
-                </div>
-                <span id="pageCounterBadge" class="text-[10px] font-cormorant font-bold bg-softblush px-2.5 py-0.5 rounded-full text-warmespresso">25/25</span>
-            </div>
-            <div id="pageIndexList" class="p-2 space-y-1">
-                <!-- Generated dynamically via JS -->
-            </div>
-        </aside>
+    <div class="eyebrow">✦ WELCOME TO YOUR VELVET MOMENT ✦</div>
 
-        <!-- Main Display Panel (Right Panel) -->
-        <main class="md:col-span-8 bg-pearlwhite border border-softnude rounded-2xl p-6 flex flex-col h-[80vh] custom-scrollbar overflow-y-auto shadow-sm">
-            <!-- Header Bar for Active Page -->
-            <div class="flex justify-between items-center border-b border-softnude pb-4 mb-4">
-                <div>
-                    <span id="activeCategory" class="text-[10px] font-bold text-champagnegold uppercase tracking-widest">Section 1</span>
-                    <h2 id="activeTitle" class="text-lg font-bold text-warmespresso mt-0.5">PAGE 00 — Opening Ritual</h2>
-                </div>
-                <button id="copyActiveBtn" onclick="copyCurrentPageText()" class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-warmivory hover:bg-softblush text-warmespresso border border-softnude transition shadow-sm flex items-center gap-2">
-                    <i class="fa-solid fa-clipboard text-champagnegold"></i>
-                    <span class="hidden sm:inline">نسخ هذه الصفحة</span>
-                </button>
-            </div>
+    <h1>VELVET AURA</h1>
 
-            <!-- Page Render Block Area -->
-            <div class="flex-1 pearl-card rounded-xl p-6 font-cairo text-xs leading-relaxed text-warmespresso overflow-y-auto custom-scrollbar border border-softnude" id="pageRenderContainer">
-                <!-- Page Visual Content Appears Here -->
-            </div>
+    <div class="hero-sub">The Art of Quiet Elegance</div>
 
-            <!-- Copyable Plain Text (Hidden or Collapsible) -->
-            <div id="plainTextContainer" class="hidden mt-4 p-3 bg-warmivory border border-softnude rounded-lg text-xs font-mono whitespace-pre-wrap select-all max-h-40 overflow-y-auto">
-            </div>
+    <div class="gold-line"></div>
 
-            <!-- Page Navigation CTA Footer -->
-            <div id="interactiveCtaBar" class="mt-4 pt-3 border-t border-softnude flex justify-between items-center text-xs">
-                <button onclick="navigatePage(-1)" class="text-warmespresso/70 hover:text-warmespresso transition flex items-center gap-1">
-                    <i class="fa-solid fa-arrow-right"></i> الصفحة السابقة
-                </button>
-                <div class="flex gap-2">
-                    <button onclick="togglePlainText()" class="px-3 py-1 rounded-full text-[11px] bg-warmivory border border-softnude text-taupe hover:text-warmespresso">
-                        <i class="fa-solid fa-code"></i> النص الخام
-                    </button>
-                    <button onclick="navigatePage(1)" class="bg-champagnegold/10 hover:bg-champagnegold/20 text-champagnegold font-bold px-4 py-1.5 rounded-full border border-champagnegold/30 transition flex items-center gap-2">
-                        <span id="ctaBtnText">الانتقال للصفحة التالية</span>
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </button>
-                </div>
-            </div>
-        </main>
+    <p class="hero-ar">
+      مساحة هادئة صُممت لاكتشاف وصقل التفاصيل
+      التي تعكس ذوقكِ الأصيل.
+    </p>
+
+    <p>
+      <em>Your Aura already exists.<br>
+      We are simply revealing it.</em>
+    </p>
+
+    <button class="btn" onclick="startQuiz()">
+      اكتشفي هالتكِ
+    </button>
+
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" class="screen">
+  <div class="container">
+
+    <div class="eyebrow">THE VELVET ARCHETYPE QUIZ</div>
+
+    <h2>اكتشفي نمط هالتكِ</h2>
+
+    <p class="center">
+      أجيبي عن الأسئلة الستة، وفي النهاية ستظهر لكِ بصمتكِ الأساسية.
+    </p>
+
+    <div class="quiz-card">
+
+      <div class="progress">
+        <span id="progress"></span>
+      </div>
+
+      <div id="quizContent"></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESULT -->
+<section id="result" class="screen">
+  <div class="container result">
+
+    <div class="eyebrow">YOUR AURA SIGNATURE</div>
+
+    <h2>نتيجة بصمة هالتكِ</h2>
+
+    <div id="resultContent"></div>
+
+    <button class="btn" onclick="showPage('profile')">
+      احفظي ملف هالتكِ
+    </button>
+
+    <button class="btn btn-outline" onclick="showPage('ritual')">
+      ابدئي طقوسكِ
+    </button>
+
+  </div>
+</section>
+
+<!-- RITUAL -->
+<section id="ritual" class="screen">
+  <div class="container">
+
+    <div class="eyebrow">THE SIGNATURE RITUAL</div>
+
+    <h2>طقوس Velvet Aura</h2>
+
+    <p class="center">
+      خطوات صغيرة لبناء حضور هادئ ومتزن يشبهكِ.
+    </p>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-number">01</div>
+        <h3>Signature Scent</h3>
+        <p>
+          ابدئي ببشرة مرطبة، ثم طبقي عطركِ على نقاط النبض
+          بدون فرك للمعصمين.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-number">02</div>
+        <h3>10-Minute Reset</h3>
+        <p>
+          تنظيف ناعم، ترطيب، عناية باليدين والأظافر،
+          ثم اللمسة العطرية الأخيرة.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-number">03</div>
+        <h3>Presence Detail</h3>
+        <p>
+          إكسسوار موزون، هندام مرتب، ونبرة صوت هادئة
+          تصنع تفاصيل الحضور.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-number">04</div>
+        <h3>Exit Ritual</h3>
+        <p>
+          جهزي عبايتكِ وإكسسواراتكِ مسبقاً،
+          ثم أضيفي عطركِ قبل الخروج.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-number">05</div>
+        <h3>Capsule Identity</h3>
+        <p>
+          اختاري ألواناً محددة ونسقي إطلالاتكِ مسبقاً
+          لتقليل الحيرة اليومية.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-number">06</div>
+        <h3>Shopping Map</h3>
+        <p>
+          لا تشترِي لمجرد الترند. اسألي: هل يخدم هويتي؟
+          وهل سأستخدمه فعلاً؟
+        </p>
+      </div>
+
     </div>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-warmespresso text-pearlwhite border border-champagnegold px-6 py-3 rounded-full shadow-2xl text-xs font-bold transition-all opacity-0 pointer-events-none z-50 flex items-center gap-2">
-        <i class="fa-solid fa-sparkles text-champagnegold"></i>
-        <span id="toastMsg">تم النسخ بنجاح!</span>
+    <div class="card" style="margin-top:30px">
+      <h3>30-Day Aura Tracker</h3>
+      <p>اضغطي على اليوم عند إكمال طقسِكِ.</p>
+      <div id="tracker" class="tracker"></div>
     </div>
 
-    <!-- Hidden Copy Textarea -->
-    <textarea id="hiddenCopyText" class="absolute left-[-9999px] top-[-9999px]"></textarea>
-
-    <!-- App Engine Script -->
-    <script>
-        const pagesData = [
-            {
-                id: 0,
-                title: "Page 00 — طقس الافتتاح",
-                category: "Section 1 — Enter Your Aura",
-                text: `✦ WELCOME TO YOUR VELVET MOMENT ✦
-
-قبل أن تبدئي... امنحي نفسكِ لحظة هادئة.
-
-هذه ليست قائمة مهام جديدة تُضاف إلى يومكِ،
-وليست محاولة لتغيير ذاتكِ أو إشعاركِ بالتقصير.
-
-هذه مساحة هادئة صُممت لاكتشاف وصقل التفاصيل
-التي كانت تعكس ذوقكِ الأصيل دائماً.
-
-Your Aura already exists.
-We are simply revealing it.`,
-                render: () => `
-                    <div class="flex flex-col justify-center items-center text-center my-auto py-12 px-4 space-y-6">
-                        <span class="text-xs font-cormorant tracking-[0.3em] text-champagnegold uppercase">✦ WELCOME TO YOUR VELVET MOMENT ✦</span>
-                        <div class="w-12 h-[1px] bg-champagnegold/50 my-2"></div>
-                        <p class="text-sm sm:text-base font-tajawal leading-loose text-warmespresso font-medium max-w-md">
-                            قبل أن تبدئي... امنحي نفسكِ لحظة هادئة.<br><br>
-                            هذه ليست قائمة مهام جديدة تُضاف إلى يومكِ، وليست محاولة لتغيير ذاتكِ أو إشعاركِ بالتقصير.<br><br>
-                            هذه مساحة صُممت لاكتشاف وصقل التفاصيل التي كانت تعكس ذوقكِ الأصيل دائماً.
-                        </p>
-                        <div class="w-12 h-[1px] bg-champagnegold/50 my-2"></div>
-                        <p class="text-xs font-cormorant italic text-dustyrose tracking-widest">
-                            Your Aura already exists. We are simply revealing it.
-                        </p>
-                    </div>
-                `
-            },
-            {
-                id: 1,
-                title: "Page 01 — الغلاف الرئيسي",
-                category: "Section 1 — Enter Your Aura",
-                text: `VELVET AURA
-The Art of Quiet Elegance
-
-THE SIGNATURE RITUAL
-نِظَامُكِ الخَاص لِبِنَاءِ حُضُورٍ يَشْبَهُكِ، وَتَنْسِيقِ أُسْلُوبِكِ العَطْرِيِّ بِدُونِ تَعْقِيدٍ.
-
-FOUNDING EDITION | INTERACTIVE DIGITAL RITUAL`,
-                render: () => `
-                    <div class="flex flex-col justify-between items-center text-center my-auto py-10 border border-champagnegold/40 p-8 rounded-lg bg-pearlwhite shadow-sm">
-                        <div class="space-y-3">
-                            <span class="text-xs font-cormorant tracking-[0.3em] text-champagnegold uppercase">A 30-Day Digital Experience</span>
-                            <h1 class="text-4xl sm:text-5xl font-cormorant font-bold text-warmespresso tracking-widest mt-2">VELVET AURA</h1>
-                            <p class="text-xs font-cormorant italic text-taupe tracking-wider">The Art of Quiet Elegance</p>
-                        </div>
-                        
-                        <div class="gold-divider w-24 my-6">✦</div>
-
-                        <div class="space-y-4 max-w-md">
-                            <h2 class="text-2xl font-tajawal font-bold text-warmespresso leading-relaxed">THE SIGNATURE RITUAL</h2>
-                            <p class="text-xs text-warmespresso/80 leading-relaxed font-tajawal">
-                                نظامُكِ الخاص لبناء حضور يشبهكِ، وتنسيق أسلوبكِ العطري بدون تعقيد.
-                            </p>
-                        </div>
-
-                        <div class="mt-10 pt-6 border-t border-softnude w-full flex justify-center">
-                            <span class="text-[10px] font-cormorant tracking-[0.2em] bg-softblush text-warmespresso px-4 py-1.5 rounded-full border border-softnude font-semibold uppercase">
-                                Founding Edition | Interactive Digital Ritual
-                            </span>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 2,
-                title: "Page 02 — الترحيب والاستجمام",
-                category: "Section 1 — Enter Your Aura",
-                text: `Welcome To Your Sanctuary
-
-"الأناقة الحقيقية ليست صاخبة، بل هي تناغم صامت بين ما تشعرين به وما تعكسينه للعالم."
-
-مرحباً بكِ في عالم Velvet Aura.
-هذا ليس كتاباً للقراءة فقط، بل هو نظام عملي صُمم ليرافقكِ في صقل ذوقكِ، توضيح اختياراتكِ، وترتيب عالمكِ الشخصي.
-
-هنا لن نطلب منكِ تغيير شخصيتكِ ولا شراء عشرات المنتجات الجديدة، بل سنساعدكِ على صقل أسلوبكِ الأصيل وجعل الاهتمام بالذات طقساً يومياً راقياً ومستداماً.
-
-Prepare your quiet space, and let us begin.`,
-                render: () => `
-                    <div class="flex flex-col justify-center text-center space-y-6 px-4 py-6">
-                        <span class="text-xs font-cormorant text-champagnegold tracking-widest uppercase">Welcome To Your Sanctuary</span>
-                        
-                        <div class="p-6 bg-softblush/50 border border-softnude rounded-xl space-y-3">
-                            <p class="text-sm font-cormorant italic text-warmespresso leading-relaxed">
-                                "الأناقة الحقيقية ليست صاخبة، بل هي تناغم صامت بين ما تشعرين به وما تعكسينه للعالم."
-                            </p>
-                        </div>
-
-                        <div class="space-y-4 text-xs text-warmespresso/90 leading-loose max-w-lg mx-auto font-cairo text-justify">
-                            <h3 class="text-base font-bold text-warmespresso text-center mb-2">مرحباً بكِ في عالم Velvet Aura</h3>
-                            <p>
-                                هذا ليس كتاباً للقراءة فقط، بل هو نظام عملي صُمم ليرافقكِ في صقل ذوقكِ، توضيح اختياراتكِ، وترتيب عالمكِ الشخصي.
-                            </p>
-                            <p>
-                                هنا لن نطلب منكِ تغيير شخصيتكِ ولا شراء عشرات المنتجات الجديدة، بل سنساعدكِ على صقل أسلوبكِ الأصيل وجعل الاهتمام بالذات طقساً يومياً راقياً ومستداماً.
-                            </p>
-                        </div>
-
-                        <div class="pt-4 text-center">
-                            <span class="text-xs font-cormorant italic text-champagnegold">Prepare your quiet space, and let us begin.</span>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 3,
-                title: "Page 02-B — التحول الذاتي",
-                category: "Section 1 — Enter Your Aura",
-                text: `YOUR AURA TRANSFORMATION
-التحول من الشتات إلى وضوح الاختيار
-
-قبل استخدام Velvet Aura:
-✕ شراء عطور وكريمات متراكمة بدون هوية محددة.
-✕ الحيرة الصباحية والتردد أمام الخيارات الكثيرة.
-✕ الانسياق خلف صيحات التجميل والعطور التي لا تمثلكِ.
-✕ زوال ثبات الرائحة والاهتمام العشوائي.
-
-بعد استكمال طقوس Velvet Aura:
-✓ وضوح نظام حضوركِ والنوتات التي تناسب كيمياء بشرتكِ.
-✓ خزانة مصغرة ومرتبة تمنحكِ جاهزية وثقة في 10 دقائق.
-✓ منهجية شراء واعية تحمي ميزانيتكِ واستثماراتكِ.
-✓ أسلوب شخصي متزن يترك انطباعاً صامتاً وراقياً.`,
-                render: () => `
-                    <div class="space-y-6 py-4">
-                        <div class="border-b border-softnude pb-3 text-center">
-                            <span class="text-[10px] font-cormorant text-champagnegold tracking-widest uppercase">The Transformation</span>
-                            <h2 class="text-lg font-bold text-warmespresso mt-1">التحول من الشتات إلى وضوح الاختيار</h2>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                            <div class="p-4 bg-red-900/5 border border-red-900/10 rounded-xl space-y-3">
-                                <h4 class="font-bold text-red-900 text-sm flex items-center gap-2">
-                                    <i class="fa-solid fa-xmark-circle"></i> قبل استخدام Velvet Aura
-                                </h4>
-                                <ul class="space-y-2 text-warmespresso/80 leading-relaxed">
-                                    <li>✕ شراء عطور وكريمات متراكمة بدون هوية محددة.</li>
-                                    <li>✕ الحيرة الصباحية والتردد أمام الخيارات الكثيرة.</li>
-                                    <li>✕ الانسياق خلف صيحات التجميل والعطور التي لا تمثلكِ.</li>
-                                    <li>✕ زوال ثبات الرائحة والاهتمام العشوائي.</li>
-                                </ul>
-                            </div>
-
-                            <div class="p-4 bg-emerald-900/5 border border-emerald-900/10 rounded-xl space-y-3">
-                                <h4 class="font-bold text-emerald-900 text-sm flex items-center gap-2">
-                                    <i class="fa-solid fa-check-circle"></i> بعد استكمال Velvet Aura
-                                </h4>
-                                <ul class="space-y-2 text-warmespresso/80 leading-relaxed">
-                                    <li>✓ وضوح نظام حضوركِ والنوتات التي تناسب بشرتكِ.</li>
-                                    <li>✓ خزانة مصغرة ومرتبة تمنحكِ جاهزية في 10 دقائق.</li>
-                                    <li>✓ منهجية شراء واعية تحمي ميزانيتكِ واستثماراتكِ.</li>
-                                    <li>✓ أسلوب شخصي متزن يترك انطباعاً صامتاً وراقياً.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 4,
-                title: "Page 03 — كيفية الاستخدام والطقس",
-                category: "Section 1 — Enter Your Aura",
-                text: `كيف تحققين أقصى استفادة من هذا النظام؟
-
-1. كوني في مساحة هادئة: خصصي 10 دقائق من يومكِ بعيداً عن الشتات للتركيز والتأمل في هذا الملف.
-2. جهزي أدواتكِ البسيطة: استعيني بعطركِ المفضل، مرطبكِ، وجوالكِ أو جهاز الـ iPad الخاص بكِ لتسجيل ملاحظاتكِ.
-3. التزمي بالتطبيق التدريجي: لا تحاولي تطبيق كل شيء في يوم واحد؛ الأناقة عادة هادئة تُبنى خطوة بخطوة.
-
-"كل طقس تبدئينه باحترام لذاتكِ، ينعكس فوراً على هالتكِ أمام الآخرين."`,
-                render: () => `
-                    <div class="space-y-6 py-4">
-                        <div class="border-b border-softnude pb-3">
-                            <span class="text-[10px] font-cormorant text-champagnegold tracking-widest uppercase">Guide Instructions</span>
-                            <h2 class="text-lg font-bold text-warmespresso mt-1">كيف تحققين أقصى استفادة من هذا النظام؟</h2>
-                        </div>
-
-                        <div class="space-y-4">
-                            <div class="p-4 bg-softblush/40 border border-softnude rounded-xl flex items-start gap-4">
-                                <span class="font-cormorant text-lg font-bold text-champagnegold bg-pearlwhite px-3 py-1 rounded-lg border border-softnude">01</span>
-                                <div class="text-xs space-y-1">
-                                    <h4 class="font-bold text-warmespresso">كوني في مساحة هادئة</h4>
-                                    <p class="text-warmespresso/80 leading-relaxed">خصصي 10 دقائق من يومكِ بعيداً عن الشتات للتركيز والتأمل في هذا الملف.</p>
-                                </div>
-                            </div>
-
-                            <div class="p-4 bg-softblush/40 border border-softnude rounded-xl flex items-start gap-4">
-                                <span class="font-cormorant text-lg font-bold text-champagnegold bg-pearlwhite px-3 py-1 rounded-lg border border-softnude">02</span>
-                                <div class="text-xs space-y-1">
-                                    <h4 class="font-bold text-warmespresso">جهزي أدواتكِ البسيطة</h4>
-                                    <p class="text-warmespresso/80 leading-relaxed">استعيني بعطركِ المفضل، مرطبكِ، وجوالكِ أو جهاز الـ iPad لتسجيل ملاحظاتكِ.</p>
-                                </div>
-                            </div>
-
-                            <div class="p-4 bg-softblush/40 border border-softnude rounded-xl flex items-start gap-4">
-                                <span class="font-cormorant text-lg font-bold text-champagnegold bg-pearlwhite px-3 py-1 rounded-lg border border-softnude">03</span>
-                                <div class="text-xs space-y-1">
-                                    <h4 class="font-bold text-warmespresso">التزمي بالتطبيق التدريجي</h4>
-                                    <p class="text-warmespresso/80 leading-relaxed">لا تحاولي تطبيق كل شيء في يوم واحد؛ الأناقة عادة هادئة تُبنى خطوة بخطوة.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-4 bg-pearlwhite border border-champagnegold/40 rounded-xl text-center">
-                            <p class="text-xs italic font-cormorant text-warmespresso">"كل طقس تبدئينه باحترام لذاتكِ، ينعكس فوراً على هالتكِ أمام الآخرين."</p>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 5,
-                title: "Page 04 — منهجية Velvet Aura",
-                category: "Section 1 — Enter Your Aura",
-                text: `The Velvet Aura Method
-منهجية الأناقة الهادئة في 4 مراحل
-
-✦ Phase 1: DISCOVER (اكتشفي)
-تحديد نمط هالتكِ العطرية والشخصية لتجنب الاختيارات الخاطئة.
-
-✦ Phase 2: BUILD (ابني)
-تطبيق الشفرات الأساسية لترتيب العناية، دمج العطور، وتنسيق المظهر.
-
-✦ Phase 3: REFINE (اصقلي)
-ضبط التفاصيل الصامتة، اختيار المشتريات المحددة، والتجهيز للمناسبات.
-
-✦ Phase 4: MAINTAIN (حافظي)
-ترسيخ العادات عبر جدول المتابعة الـ 30 يوماً لتصبح الأناقة عادة دائمة.`,
-                render: () => `
-                    <div class="space-y-6 py-4">
-                        <div class="border-b border-softnude pb-2">
-                            <span class="text-[10px] font-cormorant text-champagnegold tracking-widest uppercase">The Methodology</span>
-                            <h2 class="text-lg font-bold text-warmespresso mt-0.5">منهجية Velvet Aura في 4 مراحل</h2>
-                        </div>
-
-                        <div class="grid grid-cols-1 gap-3">
-                            <div class="p-3.5 bg-softblush/40 border border-softnude rounded-xl flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-full bg-champagnegold text-pearlwhite flex items-center justify-center font-bold text-xs shrink-0">1</div>
-                                <div class="text-xs">
-                                    <h4 class="font-bold text-warmespresso font-cormorant">Phase 1: DISCOVER (اكتشفي)</h4>
-                                    <p class="text-warmespresso/80">تحديد نمط هالتكِ العطرية والشخصية لتجنب الاختيارات الخاطئة.</p>
-                                </div>
-                            </div>
-
-                            <div class="p-3.5 bg-softblush/40 border border-softnude rounded-xl flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-full bg-champagnegold text-pearlwhite flex items-center justify-center font-bold text-xs shrink-0">2</div>
-                                <div class="text-xs">
-                                    <h4 class="font-bold text-warmespresso font-cormorant">Phase 2: BUILD (ابني)</h4>
-                                    <p class="text-warmespresso/80">تطبيق الشفرات الأساسية لترتيب العناية، دمج العطور، وتنسيق المظهر.</p>
-                                </div>
-                            </div>
-
-                            <div class="p-3.5 bg-softblush/40 border border-softnude rounded-xl flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-full bg-champagnegold text-pearlwhite flex items-center justify-center font-bold text-xs shrink-0">3</div>
-                                <div class="text-xs">
-                                    <h4 class="font-bold text-warmespresso font-cormorant">Phase 3: REFINE (اصقلي)</h4>
-                                    <p class="text-warmespresso/80">ضبط التفاصيل الصامتة، اختيار المشتريات المحددة، والتجهيز للمناسبات.</p>
-                                </div>
-                            </div>
-
-                            <div class="p-3.5 bg-softblush/40 border border-softnude rounded-xl flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-full bg-champagnegold text-pearlwhite flex items-center justify-center font-bold text-xs shrink-0">4</div>
-                                <div class="text-xs">
-                                    <h4 class="font-bold text-warmespresso font-cormorant">Phase 4: MAINTAIN (حافظي)</h4>
-                                    <p class="text-warmespresso/80">ترسيخ العادات عبر جدول المتابعة الـ 30 يوماً لتصبح الأناقة عادة دائمة.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 6,
-                title: "Page 05 — اختبار الشخصية العطرية الذكي",
-                category: "Section 1 — Enter Your Aura",
-                text: `The Velvet Archetype Quiz (المطور بنظام الاحتساب الآلي)
-اكتشفي نمط هالتكِ العطرية بدقة
-
-1. ما هو الانطباع الذي تفضلين تركه عند حضوركِ؟
-   - أ. ناعم، أنثوي، وهادئ. (+2 Silk)
-   - ب. دافئ، فاخر، وذو حضور. (+2 Amber)
-   - ج. نظيف، منعش، وراقٍ. (+2 Pearl)
-   - د. غامض، عميق، ولا يُنسى. (+2 Noir)
-
-2. أي الأجواء والتفاصيل المكانية تشبه روحكِ أكثر؟
-   - أ. غرفة بيضاء هادئة بستائر حريرية وضوء دافئ. (+2 Silk)
-   - ب. مجلس دافئ فاخر بإضاءة خافتة ورائحة بخور هادئة. (+2 Amber)
-   - ج. صباح مشمس على شاطئ زجاجي ومساحات مفتوحة. (+2 Pearl)
-   - د. أفق ليلة غامضة في فندق فاخر هادئ. (+2 Noir)
-
-3. إذا أردتِ ملامسة إحساس الفخامة، أي الملامس تفضلين؟
-   - أ. الحرير الناعم الخفيف. (+2 Silk)
-   - ب. المخمل الثقيل الدافئ. (+2 Amber)
-   - ج. القطن والكتان النظيف. (+2 Pearl)
-   - د. الجلد الفاخر والقطع المسبوكة. (+2 Noir)
-
-4. ما هي لوحة الألوان التي تمنحكِ شعوراً بالاتزان؟
-   - أ. الوردي البودري والنود الناعم. (+2 Silk)
-   - ب. الذهبي المطفي وألوان العنبر الدافئة. (+2 Amber)
-   - ج. الأبيض الصافي والرمادي الفاتح. (+2 Pearl)
-   - د. الأسود المخملي والدرجات الداكنة. (+2 Noir)
-
-5. في أي المناسبات تشعرين أن حضوركِ يستدعي تركيبة عطرية خاصة؟
-   - أ. اللقاءات الصباحية الهادئة والدوام اليومي. (+2 Silk)
-   - ب. المناسبات والاجتماعات المهمة. (+2 Amber)
-   - ج. نزهات الاسترخاء وأوقات الانتعاش. (+2 Pearl)
-   - د. الأمسيات واللقاءات الخاصة. (+2 Noir)
-
-6. ما أكثر شيء يزعجكِ عادة في التجارب العطرية الحالية؟
-   - أ. الروائح القوية النفاذة التي تسبب الإزعاج. (+2 Silk)
-   - ب. عدم ثبات الرائحة وزوالها سريعاً. (+2 Amber)
-   - ج. الشعور بثقل العطر وعدم مناسبته للانتعاش. (+2 Pearl)
-   - د. كثرة الخيارات المكررة وعدم وجود هوية خاصة. (+2 Noir)
-
-نتيجة بصمة هالتكِ الأساسية (Aura Signature Score):
-- النمط ذو النقاط الأعلى يُشكل نمط هالتكِ السائد.`,
-                render: () => `
-                    <div class="space-y-4 py-2">
-                        <div class="border-b border-softnude pb-2">
-                            <span class="text-[10px] font-cormorant text-champagnegold tracking-widest uppercase">Self-Discovery Quiz</span>
-                            <h2 class="text-base font-bold text-warmespresso">The Velvet Archetype Quiz (الذكائي)</h2>
-                        </div>
-
-                        <div class="space-y-3 text-xs">
-                            <div class="p-3 bg-warmivory border border-softnude rounded-xl">
-                                <p class="font-bold text-warmespresso mb-2">1. ما هو الانطباع الذي تفضلين تركه عند حضوركِ؟</p>
-                                <div class="grid grid-cols-2 gap-2 text-[11px]">
-                                    <button onclick="addQuizPoint('Silk')" class="p-2 bg-pearlwhite border border-softnude rounded-lg text-right hover:border-champagnegold">أ. ناعم، أنثوي، وهادئ</button>
-                                    <button onclick="addQuizPoint('Amber')" class="p-2 bg-pearlwhite border border-softnude rounded-lg text-right hover:border-champagnegold">ب. دافئ، فاخر، وذو حضور</button>
-                                    <button onclick="addQuizPoint('Pearl')" class="p-2 bg-pearlwhite border border-softnude rounded-lg text-right hover:border-champagnegold">ج. نظيف، منعش، وراقٍ</button>
-                                    <button onclick="addQuizPoint('Noir')" class="p-2 bg-pearlwhite border border-softnude rounded-lg text-right hover:border-champagnegold">د. غامض، عميق، ولا يُنسى</button>
-                                </div>
-                            </div>
-
-                            <div class="p-3 bg-warmivory border border-softnude rounded-xl">
-                                <p class="font-bold text-warmespresso mb-2">2. أي الأجواء والتفاصيل المكانية تشبه روحكِ أكثر؟</p>
-                                <div class="grid grid-cols-2 gap-2 text-[11px]">
-                                    <button onclick="addQuizPoint('Silk')" class="p-2 bg-pearlwhite border border-softnude rounded-lg text-right hover:border-champagnegold">أ. غرفة بيضاء بستائر حريرية</button>
-                                    <button onclick="addQuizPoint('Amber')" class="p-2 bg-pearlwhite border border-softnude rounded-lg text-right hover:border-champagnegold">ب. مجلس دافئ ورائحة بخور</button>
-                                    <button onclick="addQuizPoint('Pearl')" class="p-2 bg-pearlwhite border border-softnude rounded-lg text-right hover:border-champagnegold">ج. صباح مشمس على شاطئ زجاجي</button>
-                                    <button onclick="addQuizPoint('Noir')" class="p-2 bg-pearlwhite border border-softnude rounded-lg text-right hover:border-champagnegold">د. ليلة غامضة في فندق فاخر</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-3 bg-softblush/60 border border-champagnegold/40 rounded-xl text-xs space-y-1">
-                            <span class="font-bold text-warmespresso font-cormorant text-[10px] uppercase">Archetype Key & Real-time Calculator:</span>
-                            <div class="grid grid-cols-2 gap-1 text-[10px] text-warmespresso/90">
-                                <span>The Silk Aura (ناعمة وهادئة)</span>
-                                <span>The Amber Aura (دافئة وفاخرة)</span>
-                                <span>The Pearl Aura (منعشة ونظيفة)</span>
-                                <span>The Noir Aura (غامضة وعميقة)</span>
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 7,
-                title: "Page 06 — التقرير الشخصي المخصص",
-                category: "Section 1 — Enter Your Aura",
-                text: `MY PERSONALIZED AURA REPORT
-تحليل وتوجيهات هالتكِ العطرية
-
-تقرير هالتكِ المخصص بناءً على النتائج:
-✦ Your Aura Signature (بصمة هالتكِ): The Silk Aura
-✦ Your Color Palette: الوردي البودري، البيج الحريري، والذهبي الهادئ.
-✦ Your Wardrobe Mood: أقمشة ناعمة انسيبابية، عبايات كلاسيكية بقصات راقية.
-✦ Your Signature Scent Family: المسك الأبيض، زهور الإيريس، الفانيليا الهادئة.
-✦ Your Beauty Ritual: بشرة نضرة صحية، مظهر طبيعي (No-Makeup Makeup Look).
-✦ Your Shopping Direction: التركيز على العطور البودرية والمسك، واستبعاد العطور السكرية الثقيلة.`,
-                render: () => `
-                    <div class="space-y-4 py-2">
-                        <div class="border-b border-softnude pb-2 flex justify-between items-center">
-                            <div>
-                                <span class="text-[10px] font-cormorant text-champagnegold tracking-widest uppercase">Personal Analysis</span>
-                                <h2 class="text-base font-bold text-warmespresso">MY PERSONALIZED AURA REPORT</h2>
-                            </div>
-                            <span class="text-[10px] font-cormorant bg-softblush px-2.5 py-0.5 rounded-full text-warmespresso border border-softnude">CONFIDENTIAL</span>
-                        </div>
-
-                        <div class="p-4 bg-softblush/40 border border-champagnegold/40 rounded-xl space-y-3 text-xs">
-                            <div class="flex justify-between items-center border-b border-softnude pb-2">
-                                <span class="font-bold text-champagnegold text-sm">✦ Your Aura Signature:</span>
-                                <span id="dominantAuraBadge" class="font-cormorant font-bold text-warmespresso bg-pearlwhite px-3 py-1 rounded-full border border-softnude">The Silk Aura</span>
-                            </div>
-
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[11px]">
-                                <div class="p-2 bg-pearlwhite border border-softnude rounded-lg">
-                                    <strong class="text-champagnegold">• Your Color Palette:</strong><br>
-                                    الوردي البودري، البيج الحريري، والذهبي الهادئ.
-                                </div>
-                                <div class="p-2 bg-pearlwhite border border-softnude rounded-lg">
-                                    <strong class="text-champagnegold">• Your Wardrobe Mood:</strong><br>
-                                    أقمشة ناعمة انسيابية، عبايات بقصات كلاسيكية.
-                                </div>
-                                <div class="p-2 bg-pearlwhite border border-softnude rounded-lg">
-                                    <strong class="text-champagnegold">• Your Scent Family:</strong><br>
-                                    المسك الأبيض، زهور الإيريس، الفانيليا الهادئة.
-                                </div>
-                                <div class="p-2 bg-pearlwhite border border-softnude rounded-lg">
-                                    <strong class="text-champagnegold">• Your Shopping Direction:</strong><br>
-                                    التركيز على النوتات البودرية واستبعاد السكرية.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-3 bg-pearlwhite border border-softnude rounded-xl text-xs text-center text-warmespresso/80 italic font-cormorant">
-                            "هذا التقرير هو بوصلتكِ الشخصية عند كل تجربة جمالية جديدة."
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 8,
-                title: "Page 07 — شفرة هالتكِ الشاملة",
-                category: "Section 1 — Enter Your Aura",
-                text: `My Velvet Aura DNA Profile
-الهوية الشخصية الشاملة لهالتكِ
-
-الحقول التفاعلية:
-✦ My Dominant Archetype (بصمة هالتي الأساسية):
-____________________________________________________
-
-✦ My Energy & Mood (طاقة هالتي ومزاجي المفضّل):
-[ ] هادئة وأنثوية | [ ] دافئة وفاخرة | [ ] منعشة ونظيفة | [ ] غامضة وعميقة
-
-✦ My Go-To Notes (نوتاتي المعتمدة التي تشبهني):
-____________________________________________________
-
-✦ My Avoid Notes (النوتات التي أستبعدها ولا تناسبني):
-____________________________________________________
-
-✦ My Non-Negotiable Detail (التفصيلة الصامتة التي لا أتخلى عنها):
-____________________________________________________
-
-✦ Your Aura Insight (إدراك هالتكِ):
-"تذكري دائماً: أنتِ لا تبحثين عن مجرد رائحة جميلة، بل عن إحساس محدد ينسجم مع بشرتكِ ويرتبط بحضوركِ."`,
-                render: () => `
-                    <div class="space-y-4 py-2">
-                        <div class="border-b border-softnude pb-2 flex justify-between items-center">
-                            <div>
-                                <span class="text-[10px] font-cormorant text-champagnegold tracking-widest uppercase">Personal DNA</span>
-                                <h2 class="text-base font-bold text-warmespresso">My Velvet Aura DNA Profile</h2>
-                            </div>
-                        </div>
-
-                        <div class="space-y-3 text-xs">
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl space-y-1">
-                                <label class="font-bold text-champagnegold text-[11px]">✦ My Dominant Archetype (بصمة هالتي الأساسية):</label>
-                                <input type="text" id="dnaArchetype" oninput="saveInput('dnaArchetype')" placeholder="اكتبي نمطكِ السائد هنا..." class="w-full bg-pearlwhite border-b border-softnude px-2 py-1 text-xs text-warmespresso focus:outline-none rounded">
-                            </div>
-
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl space-y-1">
-                                <label class="font-bold text-champagnegold text-[11px]">✦ My Go-To Notes (نوتاتي المعتمدة التي تشبهني):</label>
-                                <input type="text" id="dnaGoTo" oninput="saveInput('dnaGoTo')" placeholder="الفانيليا الهادئة، مسك أبيض..." class="w-full bg-pearlwhite border-b border-softnude px-2 py-1 text-xs text-warmespresso focus:outline-none rounded">
-                            </div>
-
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl space-y-1">
-                                <label class="font-bold text-champagnegold text-[11px]">✦ My Avoid Notes (النوتات التي أستبعدها):</label>
-                                <input type="text" id="dnaAvoid" oninput="saveInput('dnaAvoid')" placeholder="العطور السكرية الثقيلة..." class="w-full bg-pearlwhite border-b border-softnude px-2 py-1 text-xs text-warmespresso focus:outline-none rounded">
-                            </div>
-
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl space-y-1">
-                                <label class="font-bold text-champagnegold text-[11px]">✦ My Non-Negotiable Detail (التفصيلة الصامتة):</label>
-                                <input type="text" id="dnaDetail" oninput="saveInput('dnaDetail')" placeholder="سوار ذهبي مطفي، هندام مرتب..." class="w-full bg-pearlwhite border-b border-softnude px-2 py-1 text-xs text-warmespresso focus:outline-none rounded">
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 9,
-                title: "Page 08 — شفرة الأناقة الخليجية",
-                category: "Section 1 — Enter Your Aura",
-                text: `THE GULF ELEGANCE CODE
-أسرار الأناقة الصامتة والرزانة الخليجية
-
-✦ العباية (The Abaya Code):
-نظافة القماش، كيه المتقن، وانسيابيته تشكل 70% من الانطباع المبدئي؛ قماش أنيق وقصة مظبوطة أهم بكثير من التكلف والتطريز الصاخب.
-
-✦ العطر والبخور (Scent Balance):
-الرائحة المتوازنة تسبق حضوركِ وتبقى بعد مغادرتكِ؛ التناغم بين عود البخور المعتدل وعطركِ الفرنسي هو أسرار الفخامة الخليجية.
-
-✦ المجلس والبروتوكول (Aesthetic Space):
-اختيار نوتات المكان والبخور جزء لا يتجزأ من هوية وكرم الضيافة؛ الروائح البودرية والزيوت العطرية الهادئة تعكس ذوقاً رفيعاً.
-
-✦ التفاصيل الصامتة (Silent Language):
-الساعة الموزونة، ترتيب الأظافر، ونظافة الحقيبة والعباية هي لغة الأناقة غير المنطوقة التي تُلاحظ بهدوء.`,
-                render: () => `
-                    <div class="space-y-4 py-2">
-                        <div class="border-b border-softnude pb-2">
-                            <span class="text-[10px] font-cormorant text-champagnegold tracking-widest uppercase">Cultural Heritage</span>
-                            <h2 class="text-base font-bold text-warmespresso">THE GULF ELEGANCE CODE</h2>
-                        </div>
-
-                        <div class="space-y-3 text-xs">
-                            <div class="p-3.5 bg-softblush/40 border border-softnude rounded-xl space-y-1">
-                                <h4 class="font-bold text-champagnegold text-xs">✦ العباية (The Abaya Code)</h4>
-                                <p class="text-warmespresso/80 leading-relaxed">نظافة القماش، كيه المتقن، وانسيابيته تشكل 70% من الانطباع؛ قماش أنيق وقصة مظبوطة أهم بكثير من التطريز الصاخب.</p>
-                            </div>
-
-                            <div class="p-3.5 bg-softblush/40 border border-softnude rounded-xl space-y-1">
-                                <h4 class="font-bold text-champagnegold text-xs">✦ العطر والبخور (Scent Balance)</h4>
-                                <p class="text-warmespresso/80 leading-relaxed">التناغم بين عود البخور المعتدل وعطركِ الفرنسي هو سر الفخامة والرزانة الخليجية.</p>
-                            </div>
-
-                            <div class="p-3.5 bg-softblush/40 border border-softnude rounded-xl space-y-1">
-                                <h4 class="font-bold text-champagnegold text-xs">✦ التفاصيل الصامتة (Silent Language)</h4>
-                                <p class="text-warmespresso/80 leading-relaxed">الساعة الموزونة، ترتيب الأظافر، ونظافة الحقيبة هي لغة الأناقة غير المنطوقة التي تُلاحظ بهدوء.</p>
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 10,
-                title: "Page 08-B — قواعد الاختيار الذكي",
-                category: "Section 1 — Enter Your Aura",
-                text: `My Aura Decision Rules
-منهجية الاختيار الذكي وحماية استثماراتكِ
-
-القواعد الأربع قبل اقتناء أي عطر جديد:
-قبل الشراء، اطرحي الأسئلة الأربعة التالية:
-
-[ ] 1. اختبار الهوية: هل هذه الرائحة تخدم نمط هالتي المكتشف أم أنها مجرد ترند عابر؟
-[ ] 2. اختبار الدمج: هل أستطيع دمج هذا العطر مع العطور والزيوت التي أمتلكها حالياً؟
-[ ] 3. اختبار الأثر: هل يعكس هذا العطر الإحساس والانطباع الصامت الذي أريد تركه؟
-[ ] 4. اختبار الاستخدام: هل سأستخدم هذه الزجاجة أكثر من 5 مرات هذا الشهر؟
-
-قاعدة Velvet Aura الذهبية:
-إذا كانت إجاباتكِ بـ (نعم) أقل من 3، فاستبعدي المنتج فوراً. الهدف ليس امتلاك المزيد، بل امتلاك ما يشبهكِ.`,
-                render: () => `
-                    <div class="space-y-4 py-2">
-                        <div class="border-b border-softnude pb-2">
-                            <span class="text-[10px] font-cormorant text-champagnegold tracking-widest uppercase">Smart Investment</span>
-                            <h2 class="text-base font-bold text-warmespresso">My Aura Decision Rules</h2>
-                        </div>
-
-                        <div class="space-y-3 text-xs">
-                            <div class="p-3 bg-pearlwhite border border-softnude rounded-xl space-y-2">
-                                <label class="flex items-start gap-2 cursor-pointer">
-                                    <input type="checkbox" id="rule1" onchange="saveInput('rule1')" class="mt-1 border-softnude text-champagnegold rounded focus:ring-0">
-                                    <span><strong>1. اختبار الهوية:</strong> هل هذه الرائحة تخدم نمط هالتي المكتشف أم أنها مجرد ترند؟</span>
-                                </label>
-                                <label class="flex items-start gap-2 cursor-pointer">
-                                    <input type="checkbox" id="rule2" onchange="saveInput('rule2')" class="mt-1 border-softnude text-champagnegold rounded focus:ring-0">
-                                    <span><strong>2. اختبار الدمج:</strong> هل أستطيع دمج هذا العطر مع خزانتي العطرية الحالية؟</span>
-                                </label>
-                                <label class="flex items-start gap-2 cursor-pointer">
-                                    <input type="checkbox" id="rule3" onchange="saveInput('rule3')" class="mt-1 border-softnude text-champagnegold rounded focus:ring-0">
-                                    <span><strong>3. اختبار الأثر:</strong> هل يعكس الانطباع الصامت الذي أريد تركه؟</span>
-                                </label>
-                                <label class="flex items-start gap-2 cursor-pointer">
-                                    <input type="checkbox" id="rule4" onchange="saveInput('rule4')" class="mt-1 border-softnude text-champagnegold rounded focus:ring-0">
-                                    <span><strong>4. اختبار الاستخدام:</strong> هل سأستخدمه أكثر من 5 مرات هذا الشهر؟</span>
-                                </label>
-                            </div>
-
-                            <div class="p-3 bg-softblush/60 border border-champagnegold/40 rounded-xl text-center">
-                                <p class="text-xs font-bold text-warmespresso">قاعدة Velvet Aura: إذا كانت إجاباتكِ بـ (نعم) أقل من 3، فاستبعدي المنتج فوراً.</p>
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 11,
-                title: "Page 09 — Aura Code #01 (Signature Scent)",
-                category: "Section 2 — Build Your Signature",
-                text: `AURA CODE #01 — THE SIGNATURE SCENT
-فن الدمج الملكي وتعزيز ثبات الرائحة
-
-القواعد:
-1. القاعدة الترطيبية: العطر لا يلتصق بالبشرة الجافة. استخدمي مرطباً خالي العطور على بشرة ناعمة.
-2. معادلة التباين (Layering):
-   - عطر شرقي خفيف + عطر فرنسي هادئ.
-   - بخور العود + عطر بودري مسكي.
-3. نقاط النبض الاستراتيجية: الرقبة، خلف الأذنين، وأطراف المعصمين بدون فرك.
-
-تنبيه مهم:
-⚠️ فرك المعصمين معاً يفكك جزيئات النوتات العطرية العلوية ويقلل من استمرارية وثبات العطر.`,
-                render: () => `
-                    <div class="space-y-4 py-2">
-                        <div class="bg-champagnegold text-pearlwhite px-3 py-1.5 rounded-lg flex justify-between items-center font-cormorant font-bold text-xs">
-                            <span>AURA CODE #01</span>
-                            <span class="text-[10px] tracking-widest uppercase">THE SIGNATURE SCENT</span>
-                        </div>
-
-                        <h3 class="text-base font-bold text-warmespresso font-tajawal">فن الدمج الملكي وتعزيز ثبات الرائحة</h3>
-
-                        <div class="space-y-3 text-xs leading-relaxed text-warmespresso/90">
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl">
-                                <strong class="text-champagnegold font-bold">1. القاعدة الترطيبية:</strong> العطر لا يلتصق بالبشرة الجافة. استخدمي مرطباً خالي العطور على بشرة ناعمة.
-                            </div>
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl">
-                                <strong class="text-champagnegold font-bold">2. معادلة التباين (Layering):</strong>
-                                <ul class="list-disc list-inside mt-1 space-y-0.5 text-[11px]">
-                                    <li>عطر شرقي خفيف + عطر فرنسي هادئ.</li>
-                                    <li>بخور العود + عطر بودري مسكي.</li>
-                                </ul>
-                            </div>
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl">
-                                <strong class="text-champagnegold font-bold">3. نقاط النبض الاستراتيجية:</strong> الرقبة، خلف الأذنين، وأطراف المعصمين بدون فرك.
-                            </div>
-                        </div>
-
-                        <div class="p-3 bg-red-900/5 border border-red-900/20 rounded-xl text-[11px] text-red-950 flex items-start gap-2">
-                            <i class="fa-solid fa-triangle-exclamation text-champagnegold mt-0.5"></i>
-                            <div>
-                                <strong>تنبيه مهم:</strong> فرك المعصمين معاً يفكك جزيئات النوتات العطرية العلوية ويقلل من ثبات العطر.
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 12,
-                title: "Page 10 — تعطير الشعر والأقمشة",
-                category: "Section 2 — Build Your Signature",
-                text: `Aura Code #01 Supplement — Hair & Fabric Application
-تقنيات تعطير الشعر والأقمشة
-
-التقنيات:
-✦ تعطير الشعر الذكي:
-تجنبي رش العطر الكحولي المباشر على خصلات الشعر لتجنب الجفاف. رشّي عطركِ المفضل على فرشاة خشبية، ثم مرريها ببطء على الأطراف.
-
-✦ تعطير العباية والملابس:
-- رشّي العطر من مسافة 20 سم على البطانة الداخلية للعباية.
-- بَخّري الأقمشة وهي منداة خفيفاً لثبات دخان البخور داخل الألياف.`,
-                render: () => `
-                    <div class="space-y-4 py-2">
-                        <div class="border-b border-softnude pb-2">
-                            <span class="text-[10px] font-cormorant text-champagnegold tracking-widest uppercase">Aura Code #01 Supplement</span>
-                            <h2 class="text-base font-bold text-warmespresso">تقنيات تعطير الشعر والأقمشة</h2>
-                        </div>
-
-                        <div class="space-y-3 text-xs">
-                            <div class="p-4 bg-softblush/40 border border-softnude rounded-xl space-y-2">
-                                <h4 class="font-bold text-champagnegold text-xs flex items-center gap-2">
-                                    <i class="fa-solid fa-sparkles"></i> تعطير الشعر الذكي
-                                </h4>
-                                <p class="text-warmespresso/80 leading-relaxed">تجنبي رش العطر الكحولي المباشر على خصلات الشعر. رشّي عطركِ المفضل على فرشاة خشبية، ثم مرريها ببطء على الأطراف.</p>
-                            </div>
-
-                            <div class="p-4 bg-softblush/40 border border-softnude rounded-xl space-y-2">
-                                <h4 class="font-bold text-champagnegold text-xs flex items-center gap-2">
-                                    <i class="fa-solid fa-shirt"></i> تعطير العباية والملابس
-                                </h4>
-                                <ul class="list-disc list-inside text-warmespresso/80 leading-relaxed space-y-1">
-                                    <li>رشّي العطر من مسافة 20 سم على البطانة الداخلية للعباية.</li>
-                                    <li>بَخّري الأقمشة وهي منداة خفيفاً لثبات دخان البخور داخل الألياف.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 13,
-                title: "Page 11 — Aura Code #02 (10-Minute Reset)",
-                category: "Section 2 — Build Your Signature",
-                text: `AURA CODE #02 — THE 10-MINUTE RESET
-طقس الجاهزية والنضارة السريعة
-
-الخطوات الزمنية:
-✦ MINUTES 1 — 4 (النضارة الحريرية للبشرة):
-تنظيف ناعم ➔ سيروم ترطيب ➔ مرطب حريري يمنح نضارة صحية.
-
-✦ MINUTES 5 — 7 (العناية باليدين والأظافر):
-ترطيب اليدين بمرطب مركز وتمرير زيت العناية على المفاصل والأظافر.
-
-✦ MINUTES 8 — 10 (اللمسة النهائية):
-تعديل بسيط ➔ مرطب شفاة ➔ بخة عطركِ المعتمد لنشاط يومكِ.`,
-                render: () => `
-                    <div class="space-y-4 py-2">
-                        <div class="bg-champagnegold text-pearlwhite px-3 py-1.5 rounded-lg flex justify-between items-center font-cormorant font-bold text-xs">
-                            <span>AURA CODE #02</span>
-                            <span class="text-[10px] tracking-widest uppercase">THE 10-MINUTE RESET</span>
-                        </div>
-
-                        <h3 class="text-base font-bold text-warmespresso">طقس الجاهزية والنضارة السريعة</h3>
-
-                        <div class="space-y-3 text-xs">
-                            <div class="p-3 bg-softblush/40 border-r-4 border-champagnegold rounded-l-xl space-y-1">
-                                <span class="text-[10px] font-cormorant font-bold text-champagnegold">MINUTES 1 — 4</span>
-                                <h4 class="font-bold text-warmespresso">النضارة الحريرية للبشرة</h4>
-                                <p class="text-warmespresso/80">تنظيف ناعم ➔ سيروم ترطيب ➔ مرطب حريري يمنح نضارة صحية.</p>
-                            </div>
-
-                            <div class="p-3 bg-softblush/40 border-r-4 border-champagnegold rounded-l-xl space-y-1">
-                                <span class="text-[10px] font-cormorant font-bold text-champagnegold">MINUTES 5 — 7</span>
-                                <h4 class="font-bold text-warmespresso">العناية باليدين والأظافر</h4>
-                                <p class="text-warmespresso/80">ترطيب اليدين بمرطب مركز وتمرير زيت العناية على المفاصل.</p>
-                            </div>
-
-                            <div class="p-3 bg-softblush/40 border-r-4 border-champagnegold rounded-l-xl space-y-1">
-                                <span class="text-[10px] font-cormorant font-bold text-champagnegold">MINUTES 8 — 10</span>
-                                <h4 class="font-bold text-warmespresso">اللمسة النهائية</h4>
-                                <p class="text-warmespresso/80">تعديل بسيط ➔ مرطب شفاة ➔ بخة عطركِ المعتمد لنشاط يومكِ.</p>
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 14,
-                title: "Page 11-B — طقس اليوم الكامل المعتمد",
-                category: "Section 2 — Build Your Signature",
-                text: `My Signature Day
-تقسيم الطقوس اليومية لراحة بال وأناقة دقيقة
-
-✦ Morning Aura (طقس الصباح):
-• النضارة السريعة (10-Minute Reset).
-• تطبيق معادلة الدمج العطري الهادئة.
-• ارتداء الإكسسوار المعتمد.
-
-✦ Before Leaving (قبل الخروج بـ 5 دقائق):
-• اللمسة الأخيرة لتعطير الأطراف والعباية.
-• التأكد من التفاصيل الصامتة ونظافة الهندام.
-• وضع العطر المصغر في الحقيبة.
-
-✦ Evening Reset (طقس المساء واستعادة الهدوء):
-• إزالة إجهاد اليوم وتنظيف البشرة العميق.
-• ترطيب اليدين والزيوت المغذية.
-• تهيئة مساحة غرفتكِ برائحة مهدئة للذهن.`,
-                render: () => `
-                    <div class="space-y-4 py-2">
-                        <div class="border-b border-softnude pb-2">
-                            <span class="text-[10px] font-cormorant text-champagnegold tracking-widest uppercase">Daily Rhythm</span>
-                            <h2 class="text-base font-bold text-warmespresso">My Signature Day</h2>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl space-y-2">
-                                <h4 class="font-bold text-champagnegold text-xs">✦ Morning Aura</h4>
-                                <p class="text-warmespresso/80 leading-relaxed text-[11px]">• الـ Reset الصباحي.<br>• معادلة الدمج العطري.<br>• ارتداء الإكسسوار المعتمد.</p>
-                            </div>
-
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl space-y-2">
-                                <h4 class="font-bold text-champagnegold text-xs">✦ Before Leaving</h4>
-                                <p class="text-warmespresso/80 leading-relaxed text-[11px]">• لمسة التعطير الأخيرة.<br>• مراجعة نظافة الهندام.<br>• وضع العطر المصغر بالحقيبة.</p>
-                            </div>
-
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl space-y-2">
-                                <h4 class="font-bold text-champagnegold text-xs">✦ Evening Reset</h4>
-                                <p class="text-warmespresso/80 leading-relaxed text-[11px]">• تنظيف البشرة العميق.<br>• ترطيب اليدين والزيوت.<br>• تهيئة الغرفة برائحة مهدئة.</p>
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 15,
-                title: "Page 12 — Aura Code #03 (Presence Detail)",
-                category: "Section 2 — Build Your Signature",
-                text: `AURA CODE #03 — THE PRESENCE DETAIL
-التفاصيل الصامتة والأناقة الراقية
-
-النقاط:
-✦ الإكسسوارات الموزونة:
-اختاري الذهب المطفي أو الفضة النظيفة. قطعة واحدة أو اثنتان تكفيان لعكس الرقي دون مبالغة.
-
-✦ الهندام المنسق:
-خلو العباية والملابس من التجاعيد يعكس اهتمامكِ الذاتي العالي ويساعد في ترك انطباع متزن.
-
-✦ الرزانة الهادئة:
-نبرة الصوت المعتدلة والمشية الواثقة تلعب دوراً جوهرياً في انطباع حضوركِ أمام الآخرين.`,
-                render: () => `
-                    <div class="space-y-4 py-2">
-                        <div class="bg-champagnegold text-pearlwhite px-3 py-1.5 rounded-lg flex justify-between items-center font-cormorant font-bold text-xs">
-                            <span>AURA CODE #03</span>
-                            <span class="text-[10px] tracking-widest uppercase">THE PRESENCE DETAIL</span>
-                        </div>
-
-                        <h3 class="text-base font-bold text-warmespresso">التفاصيل الصامتة والأناقة الراقية</h3>
-
-                        <div class="space-y-3 text-xs leading-relaxed text-warmespresso/90">
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl">
-                                <h4 class="font-bold text-champagnegold mb-1">✦ الإكسسوارات الموزونة</h4>
-                                <p>اختاري الذهب المطفي أو الفضة النظيفة. قطعة واحدة أو اثنتان تكفيان لعكس الرقي دون مبالغة.</p>
-                            </div>
-
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl">
-                                <h4 class="font-bold text-champagnegold mb-1">✦ الهندام المنسق</h4>
-                                <p>خلو العباية والملابس من التجاعيد يعكس اهتمامكِ الذاتي العالي ويساعد في ترك انطباع متزن.</p>
-                            </div>
-
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl">
-                                <h4 class="font-bold text-champagnegold mb-1">✦ الرزانة الهادئة</h4>
-                                <p>نبرة الصوت المعتدلة والمشية الواثقة تلعب دوراً جوهرياً في انطباع حضوركِ أمام الآخرين.</p>
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 16,
-                title: "Page 13 — Aura Code #04 (Exit Ritual)",
-                category: "Section 2 — Build Your Signature",
-                text: `AURA CODE #04 — THE EXIT RITUAL
-تجهيز المناسبات والتفاصيل الخاطفة
-
-قائمة المراجعة:
-✦ BEFORE 24 HOURS (قبل 24 ساعة):
-- [ ] تقشير ناعم وترطيب مضاعف للجسم.
-- [ ] تجهيز العباية وتبخيرها مسبقاً في الخزانة.
-- [ ] تنسيق وتجهيز إكسسوارات الحقيبة.
-
-✦ BEFORE 30 MINUTES (قبل الخروج بـ 30 دقيقة):
-- [ ] تطبيق طقس Scent Layering العطري.
-- [ ] وضع زجاجة عطر مصغرة للحقيبة.
-- [ ] مراجعة التفاصيل الصامتة واستشعار الرزانة.`,
-                render: () => `
-                    <div class="space-y-4 py-2">
-                        <div class="bg-champagnegold text-pearlwhite px-3 py-1.5 rounded-lg flex justify-between items-center font-cormorant font-bold text-xs">
-                            <span>AURA CODE #04</span>
-                            <span class="text-[10px] tracking-widest uppercase">THE EXIT RITUAL</span>
-                        </div>
-
-                        <div class="space-y-3 text-xs">
-                            <div class="p-3 bg-softblush/40 border border-softnude rounded-xl space-y-2">
-                                <h4 class="font-bold text-champagnegold font-cormorant text-[11px]">✦ BEFORE 24 HOURS (قبل 24 ساعة):</h4>
-                                <div class="space-y-1.5 text-warmespresso/90">
-                                    <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="exit1" onchange="saveInput('exit1')" class="border-softnude text-champagnegold rounded focus:ring-0"> تقشير ناعم وترطيب مضاعف للجسم</label>
-                                    <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="exit2" onchange="saveInput('exit2')" class="border-softnude text-champagnegold rounded focus:ring-0"> تجهيز العباية وتبخيرها مسبقاً</label>
-                                    <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="exit3" onchange="saveInput('exit3')" class="border-softnude text-champagnegold rounded focus:ring-0"> تنسيق وتجهيز إكسسوارات الحقيبة</label>
-                                </div>
-                            </div>
-
-                            <div class="p-3 bg-softblush/40 border border-softnude rounded-xl space-y-2">
-                                <h4 class="font-bold text-champagnegold font-cormorant text-[11px]">✦ BEFORE 30 MINUTES (قبل الخروج بـ 30 دقيقة):</h4>
-                                <div class="space-y-1.5 text-warmespresso/90">
-                                    <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="exit4" onchange="saveInput('exit4')" class="border-softnude text-champagnegold rounded focus:ring-0"> تطبيق طقس Scent Layering العطري</label>
-                                    <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="exit5" onchange="saveInput('exit5')" class="border-softnude text-champagnegold rounded focus:ring-0"> وضع زجاجة عطر مصغرة للحقيبة</label>
-                                    <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="exit6" onchange="saveInput('exit6')" class="border-softnude text-champagnegold rounded focus:ring-0"> مراجعة التفاصيل الصامتة والرزانة</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 17,
-                title: "Page 14 — Aura Code #05 (Capsule Identity)",
-                category: "Section 2 — Build Your Signature",
-                text: `AURA CODE #05 — CAPSULE IDENTITY
-تنسيق الخزانة وتقليل التشتت
-
-القواعد الثلاث:
-1. قاعدة الألوان الثلاثية: اعتمدي لوناً أساسياً (أسود/كريمي) + لوناً هادئاً (نود/وردي باهت) + لون إكسسوار (ذهبي مطفي).
-2. تجهيز الإطلالات المسبقة: نسقي 3 طقوس ملابس جاهزة للدوام أو الخروج السريع لتفادي الحيرة الصباحية.
-3. التخلص من الفوضى: القطعة التي لا تمنحكِ شعوراً بالثقة والراحة، لا مكان لها في خزانة أسلوبكِ الجديد.`,
-                render: () => `
-                    <div class="space-y-4 py-2">
-                        <div class="bg-champagnegold text-pearlwhite px-3 py-1.5 rounded-lg flex justify-between items-center font-cormorant font-bold text-xs">
-                            <span>AURA CODE #05</span>
-                            <span class="text-[10px] tracking-widest uppercase">CAPSULE IDENTITY</span>
-                        </div>
-
-                        <h3 class="text-base font-bold text-warmespresso">تنسيق الخزانة وتقليل التشتت</h3>
-
-                        <div class="space-y-3 text-xs leading-relaxed text-warmespresso/90">
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl">
-                                <h4 class="font-bold text-champagnegold mb-1">1. قاعدة الألوان الثلاثية</h4>
-                                <p>اعتمدي لوناً أساسياً (أسود/كريمي) + لوناً هادئاً (نود/وردي باهت) + لون إكسسوار (ذهبي مطفي).</p>
-                            </div>
-
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl">
-                                <h4 class="font-bold text-champagnegold mb-1">2. تجهيز الإطلالات المسبقة</h4>
-                                <p>نسقي 3 طقوس ملابس جاهزة للدوام أو الخروج السريع لتفادي الحيرة الصباحية.</p>
-                            </div>
-
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl">
-                                <h4 class="font-bold text-champagnegold mb-1">3. التخلص من الفوضى</h4>
-                                <p>القطعة التي لا تمنحكِ شعوراً بالثقة والراحة، لا مكان لها في خزانة أسلوبكِ الجديد.</p>
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 18,
-                title: "Page 15 — خريطة المشتريات الموحدة",
-                category: "Section 3 — Refine Your Lifestyle",
-                text: `Velvet Shopping Map
-خريطة المشتريات الذكية والموثوقة
-
-BEFORE YOU BUY (أسئلة القرار قبل الشراء):
-- هل يخدم نمط هالتي؟
-- هل يتكرر استخدامه أسبوعياً؟
-- هل ينسجم مع ما أملكه حالياً؟
-
-الفئات:
-✦ ESSENTIALS (الأساسيات):
-مرطب خالي العطور، زيت أظافر مركز، وفرشاة شعر خشبية.
-
-✦ UPGRADES (الترقيات الإيجابية):
-خمرية مسك ناعمة، عطور يومية هادئة، وبخور عود معتدل.
-
-✦ LUXE TOUCHES (اللمسات الفاخرة):
-عطور نيش مركزة ثابته، وكريمات معطرة مركزة للمناسبات.`,
-                render: () => `
-                    <div class="space-y-3 py-2">
-                        <div class="border-b border-softnude pb-2">
-                            <span class="text-[10px] font-cormorant text-champagnegold tracking-widest uppercase">Smart Sourcing</span>
-                            <h2 class="text-base font-bold text-warmespresso">Velvet Shopping Map</h2>
-                        </div>
-
-                        <div class="space-y-2 text-xs">
-                            <div class="p-3 bg-softblush/40 border border-softnude rounded-xl">
-                                <h4 class="font-bold text-warmespresso font-cormorant text-[11px]">✦ ESSENTIALS (الأساسيات):</h4>
-                                <p class="text-[11px] text-warmespresso/80 mt-0.5">مرطب خالي العطور، زيت أظافر مركز، وفرشاة شعر خشبية.</p>
-                            </div>
-
-                            <div class="p-3 bg-softblush/40 border border-softnude rounded-xl">
-                                <h4 class="font-bold text-warmespresso font-cormorant text-[11px]">✦ UPGRADES (الترقيات الإيجابية):</h4>
-                                <p class="text-[11px] text-warmespresso/80 mt-0.5">خمرية مسك ناعمة، عطور يومية هادئة، وبخور عود معتدل.</p>
-                            </div>
-
-                            <div class="p-3 bg-softblush/40 border border-softnude rounded-xl">
-                                <h4 class="font-bold text-warmespresso font-cormorant text-[11px]">✦ LUXE TOUCHES (اللمسات الفاخرة):</h4>
-                                <p class="text-[11px] text-warmespresso/80 mt-0.5">عطور نيش مركزة ثابته، وكريمات معطرة مركزة للمناسبات.</p>
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 19,
-                title: "Page 15-B — تركيبة حضوركِ الخاصة",
-                category: "Section 3 — Refine Your Lifestyle",
-                text: `My Signature Formula
-صياغة تركيبتكِ العطرية المعتمدة
-
-العناصر الخمسة لبناء تركيبتكِ:
-✦ My Base Scent (العطر/الزيت الأساسي):
-____________________________________________________
-
-✦ My Layering Partner (العطر المكمل للدمج):
-____________________________________________________
-
-✦ My Fabric Memory (الرائحة المفضلة لملابسي):
-____________________________________________________
-
-✦ My Signature Detail (اللمسة الصامتة الخاصة بي):
-____________________________________________________
-
-✦ My Final Aura Impression (الطباع النهائي لحضوري):
-____________________________________________________`,
-                render: () => `
-                    <div class="space-y-4 py-2">
-                        <div class="border-b border-softnude pb-2">
-                            <span class="text-[10px] font-cormorant text-champagnegold tracking-widest uppercase">Personal Recipe</span>
-                            <h2 class="text-base font-bold text-warmespresso">My Signature Formula</h2>
-                        </div>
-
-                        <div class="space-y-3 text-xs">
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl space-y-1">
-                                <label class="font-bold text-champagnegold text-[11px]">✦ My Base Scent (الزيت/العطر الأساسي):</label>
-                                <input type="text" id="formBase" oninput="saveInput('formBase')" placeholder="مسك ناعم، خمرية مسك..." class="w-full bg-pearlwhite border-b border-softnude px-2 py-1 text-xs text-warmespresso focus:outline-none rounded">
-                            </div>
-
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl space-y-1">
-                                <label class="font-bold text-champagnegold text-[11px]">✦ My Layering Partner (العطر المكمل للدمج):</label>
-                                <input type="text" id="formLayer" oninput="saveInput('formLayer')" placeholder="عطر فرنسي بودري..." class="w-full bg-pearlwhite border-b border-softnude px-2 py-1 text-xs text-warmespresso focus:outline-none rounded">
-                            </div>
-
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl space-y-1">
-                                <label class="font-bold text-champagnegold text-[11px]">✦ My Fabric Memory (رائحة عبايتي وملابسي):</label>
-                                <input type="text" id="formFabric" oninput="saveInput('formFabric')" placeholder="دخان بخور عود خفيف مع مسك..." class="w-full bg-pearlwhite border-b border-softnude px-2 py-1 text-xs text-warmespresso focus:outline-none rounded">
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 20,
-                title: "Page 16 — خطة الـ 7 أيام",
-                category: "Section 3 — Refine Your Lifestyle",
-                text: `Velvet Aura Starter Kit
-جدول خطواتكِ في أول 7 أيام
-
-الجدول:
-- DAY 1: اكتشفي نمط هالتكِ وأكملي ملف Profile.
-- DAY 2: فرزي عطوركِ وقسميها إلى يومية ومناسبات.
-- DAY 3: طبقي طريقة Scent Layering بعد الاستحمام.
-- DAY 4: اعتمدي طقس The 10-Minute Reset الصباحي.
-- DAY 5: رتبي خزانة عباياتكِ واستبعدي ما لا يريحكِ.
-- DAY 6: طبقي طقس تعطير الشعر والملابس.
-- DAY 7: قيّمي شعوركِ والفرق في حضوركِ وترتيب يومكِ.`,
-                render: () => `
-                    <div class="space-y-3 py-2">
-                        <div class="border-b border-softnude pb-2">
-                            <span class="text-[10px] font-cormorant text-champagnegold tracking-widest uppercase">7-Day Execution</span>
-                            <h2 class="text-base font-bold text-warmespresso">Velvet Aura Starter Kit</h2>
-                        </div>
-
-                        <div class="grid grid-cols-1 gap-1.5 text-xs">
-                            <div class="p-2 bg-softblush/30 border border-softnude rounded-xl flex items-center gap-3">
-                                <span class="font-cormorant font-bold text-champagnegold text-xs">DAY 1</span>
-                                <span class="text-[11px] text-warmespresso">اكتشفي نمط هالتكِ وأكملي ملف Profile.</span>
-                            </div>
-                            <div class="p-2 bg-softblush/30 border border-softnude rounded-xl flex items-center gap-3">
-                                <span class="font-cormorant font-bold text-champagnegold text-xs">DAY 2</span>
-                                <span class="text-[11px] text-warmespresso">فرزي عطوركِ وقسميها إلى يومية ومناسبات.</span>
-                            </div>
-                            <div class="p-2 bg-softblush/30 border border-softnude rounded-xl flex items-center gap-3">
-                                <span class="font-cormorant font-bold text-champagnegold text-xs">DAY 3</span>
-                                <span class="text-[11px] text-warmespresso">طبقي طريقة Scent Layering بعد الاستحمام.</span>
-                            </div>
-                            <div class="p-2 bg-softblush/30 border border-softnude rounded-xl flex items-center gap-3">
-                                <span class="font-cormorant font-bold text-champagnegold text-xs">DAY 4</span>
-                                <span class="text-[11px] text-warmespresso">اعتمدي طقس The 10-Minute Reset الصباحي.</span>
-                            </div>
-                            <div class="p-2 bg-softblush/30 border border-softnude rounded-xl flex items-center gap-3">
-                                <span class="font-cormorant font-bold text-champagnegold text-xs">DAY 5</span>
-                                <span class="text-[11px] text-warmespresso">رتبي خزانة عباياتكِ واستبعدي ما لا يريحكِ.</span>
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 21,
-                title: "Page 17 — رحلة التطور ومكافآت المتابعة",
-                category: "Section 4 — Make It Yours",
-                text: `30-Day Tracker & Aura Level Journey
-متابعة الأسبوع 1 إلى 4 ومستويات التطور الذاتي
-
-نقاط ومستويات التطور الذاتي (Aura Points & Level):
-[ ] Level 1: Explorer (+10 Points) — خوض الاختبار واكتشاف النمط.
-[ ] Level 2: Refined (+20 Points) — تطبيق Scent Layering والـ Reset الصباحي.
-[ ] Level 3: Signature Woman (+30 Points) — بناء الخزانة المصغرة وضبط التفاصيل الصامتة.
-[ ] Level 4: Velvet Mastery (+50 Points) — الأناقة طبع دائم والرائحة توقيع شخصي ثابت.`,
-                render: () => `
-                    <div class="space-y-4 py-2">
-                        <div class="border-b border-softnude pb-2">
-                            <span class="text-[10px] font-cormorant text-champagnegold tracking-widest uppercase">Gamified Journey</span>
-                            <h2 class="text-base font-bold text-warmespresso">Aura Level Journey</h2>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                            <div class="p-3 bg-pearlwhite border border-softnude rounded-xl space-y-1">
-                                <span class="text-[10px] font-cormorant font-bold text-champagnegold">LEVEL 1: EXPLORER</span>
-                                <p class="text-warmespresso text-[11px]">خوض الاختبار واكتشاف النمط العطري.</p>
-                            </div>
-                            <div class="p-3 bg-pearlwhite border border-softnude rounded-xl space-y-1">
-                                <span class="text-[10px] font-cormorant font-bold text-champagnegold">LEVEL 2: REFINED</span>
-                                <p class="text-warmespresso text-[11px]">الانتظام في Scent Layering والـ Reset الصباحي.</p>
-                            </div>
-                            <div class="p-3 bg-pearlwhite border border-softnude rounded-xl space-y-1">
-                                <span class="text-[10px] font-cormorant font-bold text-champagnegold">LEVEL 3: SIGNATURE WOMAN</span>
-                                <p class="text-warmespresso text-[11px]">بناء الخزانة المصغرة وضبط التفاصيل الصامتة.</p>
-                            </div>
-                            <div class="p-3 bg-pearlwhite border border-softnude rounded-xl space-y-1">
-                                <span class="text-[10px] font-cormorant font-bold text-champagnegold">LEVEL 4: VELVET MASTERY</span>
-                                <p class="text-warmespresso text-[11px]">الأناقة طبع دائم والرائحة توقيع شخصي ثابت.</p>
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 22,
-                title: "Page 18 — بطاقة القول المأثور والمشاركة",
-                category: "Section 4 — Make It Yours",
-                text: `MY AURA STATEMENT & SHARE CARD
-
-قالب المشاركة القابل للتصوير (Story Card):
-
-┌──────────────────────────────────────────┐
-│             MY AURA STATEMENT            │
-│                                          │
-│  My Aura is: __________________________  │
-│                                          │
-│  Because I believe elegance is:          │
-│  "Quiet confidence and mindful presence."│
-│                                          │
-│     #VelvetAura • @velvetaura.official   │
-└──────────────────────────────────────────┘`,
-                render: () => `
-                    <div class="space-y-4 py-2 text-center">
-                        <div class="border-b border-softnude pb-2">
-                            <span class="text-[10px] font-cormorant text-champagnegold tracking-widest uppercase">Social Card</span>
-                            <h2 class="text-base font-bold text-warmespresso">MY AURA STATEMENT</h2>
-                        </div>
-
-                        <div class="p-6 bg-pearlwhite border-2 border-champagnegold/60 rounded-2xl shadow-md max-w-sm mx-auto space-y-4">
-                            <span class="text-[10px] font-cormorant font-bold tracking-[0.2em] text-champagnegold uppercase">MY AURA STATEMENT</span>
-                            <div class="w-10 h-[1px] bg-champagnegold/50 mx-auto"></div>
-                            
-                            <div class="space-y-2 text-xs font-cairo text-warmespresso">
-                                <p><strong>My Aura is:</strong> <span class="border-b border-softnude px-2 text-champagnegold font-bold">The Silk Aura</span></p>
-                                <p class="text-[11px] italic text-warmespresso/80">Because I believe elegance is quiet confidence and mindful presence.</p>
-                            </div>
-
-                            <p class="text-[10px] font-cormorant text-taupe pt-2">#VelvetAura • @velvetaura.official</p>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 23,
-                title: "Page 19 — مكتبة النوتات وقائمة الاستكشاف",
-                category: "Section 4 — Make It Yours",
-                text: `MY APPROVED NOTES LIBRARY & FUTURE DISCOVERY LIST
-
-مكتبة النوتات المفضلة لدي:
-- 🌸 الزهري: الفانيليا والهيل
-- 🌿 المسكي: المسك الأبيض الصافي
-- 🪵 الخشبي: خشب الصندل والعنبر الناعم
-
-قائمة الاستكشافات المستقبلية (Future Discovery List):
-✦ A scent I want to test: _______________________
-✦ A note I want to explore: ____________________
-✦ A product worth investing in: _______________
-✦ A purchase I will avoid: ____________________`,
-                render: () => `
-                    <div class="space-y-4 py-2">
-                        <div class="border-b border-softnude pb-2">
-                            <span class="text-[10px] font-cormorant text-champagnegold tracking-widest uppercase">Personal Archives</span>
-                            <h2 class="text-base font-bold text-warmespresso">MY APPROVED NOTES LIBRARY</h2>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl space-y-1">
-                                <h4 class="font-bold text-champagnegold text-xs">✦ Future Wishlist</h4>
-                                <input type="text" id="wish1" oninput="saveInput('wish1')" placeholder="عطر أريد تجربته..." class="w-full bg-pearlwhite border-b border-softnude px-2 py-1 text-[11px] text-warmespresso focus:outline-none rounded">
-                            </div>
-                            <div class="p-3 bg-softblush/30 border border-softnude rounded-xl space-y-1">
-                                <h4 class="font-bold text-champagnegold text-xs">✦ Investment Worthy</h4>
-                                <input type="text" id="wish2" oninput="saveInput('wish2')" placeholder="منتج يستحق الاستثمار..." class="w-full bg-pearlwhite border-b border-softnude px-2 py-1 text-[11px] text-warmespresso focus:outline-none rounded">
-                            </div>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 24,
-                title: "Page 20 — العضوية ومجتمع النخبة",
-                category: "Section 5 — Continue The Journey",
-                text: `VELVET CIRCLE MEMBERSHIP
-انضمامكِ لمجتمع الأناقة الهادئة
-
-مزايتكِ القادمة مع العضوية التأسيسية:
-✓ Monthly Aura Notes: تحديثات وتوصيات موسمية للنوتات العطرية.
-✓ Seasonal Scent Guides: أدلة العطور والتنسيقات للربيع والصيف والشتاء.
-✓ Exclusive Community Challenges: تحديات تفاعلية أسبوعية لتطوير طقوسكِ.
-
-رسالة الخاتمة:
-"Velvet Aura لا تعلمكِ كيف تبدين مختلفة، بل تساعدكِ على اكتشاف التفاصيل التي تجعل حضوركِ يشبهكِ."
-
-تواصل معنا وانضمام للمجتمع:
-@velvetaura.official | www.velvetaura.co`,
-                render: () => `
-                    <div class="space-y-6 py-4 text-center">
-                        <div class="space-y-2">
-                            <span class="text-xs font-cormorant tracking-[0.2em] text-champagnegold uppercase font-bold">VELVET CIRCLE MEMBERSHIP</span>
-                            <h2 class="text-lg font-bold text-warmespresso">أنتِ الآن تصنعين حضوركِ الخاص</h2>
-                        </div>
-
-                        <div class="p-4 bg-softblush/30 border border-softnude rounded-2xl max-w-md mx-auto space-y-2 text-xs text-warmespresso/80 leading-relaxed">
-                            <p>✓ Monthly Aura Notes: تحديثات وتوصيات موسمية.</p>
-                            <p>✓ Seasonal Scent Guides: أدلة التنسيقات العطرية.</p>
-                            <p>✓ Exclusive Community Challenges: تحديات أسبوعية.</p>
-                        </div>
-
-                        <div class="p-4 bg-pearlwhite border border-champagnegold/40 rounded-xl text-xs italic font-cormorant text-warmespresso max-w-md mx-auto">
-                            "Velvet Aura لا تعلمكِ كيف تبدين مختلفة، بل تساعدكِ على اكتشاف التفاصيل التي تجعل حضوركِ يشبهكِ."
-                        </div>
-
-                        <div class="pt-2 text-xs font-cormorant text-warmespresso/70 flex justify-center gap-6">
-                            <span>www.velvetaura.co</span>
-                            <span>@velvetaura.official</span>
-                        </div>
-                    </div>
-                `
-            }
-        ];
-
-        let currentActiveIdx = 0;
-        let quizScores = { Silk: 0, Amber: 0, Pearl: 0, Noir: 0 };
-
-        function initCopyEngine() {
-            renderNavList();
-            displayPage(0);
-            loadSavedInputs();
-        }
-
-        function renderNavList() {
-            const listContainer = document.getElementById('pageIndexList');
-            listContainer.innerHTML = '';
-
-            pagesData.forEach((page, idx) => {
-                const btn = document.createElement('button');
-                btn.className = `w-full text-right px-3 py-2 rounded-xl text-xs transition flex justify-between items-center ${idx === currentActiveIdx ? 'bg-softblush text-warmespresso border-r-4 border-champagnegold font-bold shadow-sm' : 'text-warmespresso/70 hover:bg-warmivory hover:text-warmespresso'}`;
-                btn.onclick = () => displayPage(idx);
-                btn.innerHTML = `
-                    <span class="truncate">${page.title}</span>
-                    <span class="text-[10px] opacity-60 font-cormorant font-bold">${String(page.id).padStart(2, '0')}</span>
-                `;
-                listContainer.appendChild(btn);
-            });
-        }
-
-        function displayPage(idx) {
-            currentActiveIdx = idx;
-            renderNavList();
-
-            const page = pagesData[idx];
-            document.getElementById('activeCategory').innerText = page.category;
-            document.getElementById('activeTitle').innerText = page.title;
-            document.getElementById('pageRenderContainer').innerHTML = page.render();
-            document.getElementById('plainTextContainer').innerText = page.text;
-            document.getElementById('pageCounterBadge').innerText = `${String(idx + 1).padStart(2, '0')} / ${pagesData.length}`;
-
-            // Update CTA text according to page context
-            const ctaBtnText = document.getElementById('ctaBtnText');
-            if (idx === 6) ctaBtnText.innerText = "عرض التقرير المخصص →";
-            else if (idx === 22) ctaBtnText.innerText = "Share My Aura →";
-            else if (idx === 24) ctaBtnText.innerText = "Join Velvet Circle →";
-            else ctaBtnText.innerText = "الانتقال للصفحة التالية";
-
-            loadSavedInputs();
-        }
-
-        function addQuizPoint(type) {
-            quizScores[type] += 2;
-            showToast(`تمت إضافة نقطة لنمط The ${type} Aura!`);
-            
-            // Calculate dominant
-            let dominant = 'Silk';
-            let maxScore = -1;
-            for (const key in quizScores) {
-                if (quizScores[key] > maxScore) {
-                    maxScore = quizScores[key];
-                    dominant = key;
-                }
-            }
-            const badge = document.getElementById('dominantAuraBadge');
-            if (badge) badge.innerText = `The ${dominant} Aura`;
-        }
-
-        function navigatePage(direction) {
-            let nextIdx = currentActiveIdx + direction;
-            if (nextIdx >= 0 && nextIdx < pagesData.length) {
-                displayPage(nextIdx);
-            }
-        }
-
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebarNav');
-            sidebar.classList.toggle('hidden');
-        }
-
-        function togglePlainText() {
-            const container = document.getElementById('plainTextContainer');
-            container.classList.toggle('hidden');
-        }
-
-        function copyCurrentPageText() {
-            const text = pagesData[currentActiveIdx].text;
-            execCopy(text, `نص [${pagesData[currentActiveIdx].title}]`);
-        }
-
-        function copyFullDocument() {
-            let fullText = pagesData.map(p => `### 📍 ${p.title}
-
-${p.text}`).join('
-
-────── ✦ ──────
-
-');
-            execCopy(fullText, "المحتوى الشامل لـ Velvet Aura (25 صفحة)");
-        }
-
-        function execCopy(text, label) {
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(text).then(() => {
-                    showToast(`تم نسخ ${label} بنجاح!`);
-                }).catch(() => {
-                    fallbackCopy(text, label);
-                });
-            } else {
-                fallbackCopy(text, label);
-            }
-        }
-
-        function fallbackCopy(text, label) {
-            const hiddenArea = document.getElementById('hiddenCopyText');
-            hiddenArea.value = text;
-            hiddenArea.select();
-            try {
-                document.execCommand('copy');
-                showToast(`تم نسخ ${label} بنجاح!`);
-            } catch (err) {
-                showToast('عذراً، تعذر النسخ الآلي.');
-            }
-        }
-
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toastMsg').innerText = msg;
-            toast.classList.remove('opacity-0');
-            toast.classList.add('opacity-100');
-            setTimeout(() => {
-                toast.classList.remove('opacity-100');
-                toast.classList.add('opacity-0');
-            }, 3000);
-        }
-
-        function saveInput(id) {
-            const elem = document.getElementById(id);
-            if (elem) {
-                const val = elem.type === 'checkbox' ? elem.checked : elem.value;
-                localStorage.setItem('velvet_' + id, val);
-            }
-        }
-
-        function loadSavedInputs() {
-            const inputs = document.querySelectorAll('input');
-            inputs.forEach(input => {
-                if (input.id) {
-                    const saved = localStorage.getItem('velvet_' + input.id);
-                    if (saved !== null) {
-                        if (input.type === 'checkbox') input.checked = (saved === 'true');
-                        else input.value = saved;
-                    }
-                }
-            });
-        }
-
-        window.onload = initCopyEngine;
-    </script>
+  </div>
+</section>
+
+<!-- PROFILE -->
+<section id="profile" class="screen">
+  <div class="container">
+
+    <div class="eyebrow">MY VELVET AURA DNA</div>
+
+    <h2>ملف هالتكِ الشخصي</h2>
+
+    <div class="card">
+
+      <div class="field">
+        <label>My Dominant Archetype</label>
+        <input id="profileArchetype" placeholder="مثلاً: Silk Aura">
+      </div>
+
+      <div class="field">
+        <label>My Go-To Notes</label>
+        <textarea placeholder="اكتبي النوتات التي تشبهكِ..."></textarea>
+      </div>
+
+      <div class="field">
+        <label>My Avoid Notes</label>
+        <textarea placeholder="ما النوتات التي لا تناسبكِ؟"></textarea>
+      </div>
+
+      <div class="field">
+        <label>My Non-Negotiable Detail</label>
+        <textarea placeholder="ما التفصيلة التي لا تتخلين عنها؟"></textarea>
+      </div>
+
+      <button class="btn" onclick="saveProfile()">
+        حفظ ملفي
+      </button>
+
+      <p id="savedMessage"></p>
+
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <strong>VELVET AURA</strong>
+  <br>
+  The Art of Quiet Elegance
+  <br><br>
+  ✦ Founding Edition ✦
+</footer>
+
+</div>
+
+<script>
+
+const questions = [
+
+{
+q:"ما هو الانطباع الذي تفضلين تركه عند حضوركِ؟",
+options:[
+["ناعم، أنثوي، وهادئ","Silk"],
+["دافئ، فاخر، وذو حضور","Amber"],
+["نظيف، منعش، وراقٍ","Pearl"],
+["غامض، عميق، ولا يُنسى","Noir"]
+]
+},
+
+{
+q:"أي الأجواء والتفاصيل المكانية تشبه روحكِ أكثر؟",
+options:[
+["غرفة بيضاء هادئة بستائر حريرية وضوء دافئ","Silk"],
+["مجلس دافئ فاخر بإضاءة خافتة ورائحة بخور هادئة","Amber"],
+["صباح مشمس ومساحات مفتوحة ومنعشة","Pearl"],
+["ليلة غامضة في فندق فاخر هادئ","Noir"]
+]
+},
+
+{
+q:"إذا أردتِ ملامسة إحساس الفخامة، أي الملامس تفضلين؟",
+options:[
+["الحرير الناعم الخفيف","Silk"],
+["المخمل الثقيل الدافئ","Amber"],
+["القطن والكتان النظيف","Pearl"],
+["الجلد الفاخر","Noir"]
+]
+},
+
+{
+q:"ما هي لوحة الألوان التي تمنحكِ شعوراً بالاتزان؟",
+options:[
+["الوردي البودري والنود الناعم","Silk"],
+["الذهبي المطفي والعنبر","Amber"],
+["الأبيض الصافي والرمادي الفاتح","Pearl"],
+["الأسود المخملي والدرجات الداكنة","Noir"]
+]
+},
+
+{
+q:"في أي المناسبات تشعرين أن حضوركِ يستدعي تركيبة عطرية خاصة؟",
+options:[
+["اللقاءات الصباحية والدوام اليومي","Silk"],
+["المناسبات والاجتماعات المهمة","Amber"],
+["نزهات الاسترخاء وأوقات الانتعاش","Pearl"],
+["الأمسيات واللقاءات الخاصة","Noir"]
+]
+},
+
+{
+q:"ما أكثر شيء يزعجكِ عادة في التجارب العطرية الحالية؟",
+options:[
+["الروائح القوية النفاذة","Silk"],
+["عدم ثبات الرائحة","Amber"],
+["الشعور بثقل العطر","Pearl"],
+["كثرة الخيارات وعدم وجود هوية خاصة","Noir"]
+]
+}
+
+];
+
+let currentQuestion=0;
+
+let scores={
+  Silk:0,
+  Amber:0,
+  Pearl:0,
+  Noir:0
+};
+
+const auraData={
+
+Silk:{
+name:"The Silk Aura",
+ar:"هالة الحرير",
+palette:"الوردي البودري، البيج الحريري، والذهبي الهادئ",
+notes:"المسك الأبيض، الإيريس، والفانيليا الهادئة",
+mood:"أنوثة هادئة، رقيقة، ومتزنة"
+},
+
+Amber:{
+name:"The Amber Aura",
+ar:"هالة العنبر",
+palette:"العنبر، الذهبي المطفي، والبني الدافئ",
+notes:"العنبر، الأخشاب الدافئة، والبخور المعتدل",
+mood:"دفء فاخر وحضور غني"
+},
+
+Pearl:{
+name:"The Pearl Aura",
+ar:"هالة اللؤلؤ",
+palette:"الأبيض، اللؤلؤي، والرمادي الفاتح",
+notes:"المسك النظيف، الحمضيات، والنوتات الهوائية",
+mood:"نظافة وانتعاش وأناقة بسيطة"
+},
+
+Noir:{
+name:"The Noir Aura",
+ar:"هالة النوار",
+palette:"الأسود، البني العميق، والذهبي الداكن",
+notes:"الأخشاب، العنبر الداكن، والتوابل الراقية",
+mood:"غموض راقٍ وحضور لا يُنسى"
+}
+
+};
+
+function showPage(id){
+
+document.querySelectorAll(".screen,.hero").forEach(el=>{
+  el.classList.remove("active");
+});
+
+const page=document.getElementById(id);
+
+if(page) page.classList.add("active");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+function startQuiz(){
+
+currentQuestion=0;
+
+scores={
+Silk:0,
+Amber:0,
+Pearl:0,
+Noir:0
+};
+
+showPage("quiz");
+
+renderQuestion();
+
+}
+
+function renderQuestion(){
+
+const q=questions[currentQuestion];
+
+document.getElementById("progress").style.width=
+((currentQuestion+1)/questions.length*100)+"%";
+
+let html=`
+
+<div class="question">
+${currentQuestion+1}. ${q.q}
+</div>
+
+`;
+
+q.options.forEach(option=>{
+
+html+=`
+
+<button class="option"
+onclick="answer('${option[1]}')">
+${option[0]}
+</button>
+
+`;
+
+});
+
+document.getElementById("quizContent").innerHTML=html;
+
+}
+
+function answer(type){
+
+scores[type]+=2;
+
+currentQuestion++;
+
+if(currentQuestion<questions.length){
+
+renderQuestion();
+
+}else{
+
+showResult();
+
+}
+
+}
+
+function showResult(){
+
+let winner="Silk";
+
+Object.keys(scores).forEach(type=>{
+
+if(scores[type]>scores[winner]){
+winner=type;
+}
+
+});
+
+const data=auraData[winner];
+
+localStorage.setItem("velvetAuraType",winner);
+
+document.getElementById("resultContent").innerHTML=`
+
+<div class="aura-badge">${data.ar}</div>
+
+<h3>${data.name}</h3>
+
+<p>${data.mood}</p>
+
+<div class="result-box">
+
+<p><strong>Your Color Palette</strong><br>
+${data.palette}</p>
+
+<p><strong>Your Signature Scent Family</strong><br>
+${data.notes}</p>
+
+<p><strong>Your Aura Direction</strong><br>
+اختاري ما ينسجم مع هويتكِ بدلاً من ملاحقة كل جديد.
+</p>
+
+</div>
+
+`;
+
+showPage("result");
+
+}
+
+function createTracker(){
+
+const tracker=document.getElementById("tracker");
+
+for(let i=1;i<=30;i++){
+
+const day=document.createElement("div");
+
+day.className="day";
+
+day.innerHTML=`Day ${i}`;
+
+day.onclick=()=>{
+
+day.classList.toggle("done");
+
+};
+
+tracker.appendChild(day);
+
+}
+
+}
+
+function saveProfile(){
+
+const type=localStorage.getItem("velvetAuraType");
+
+const input=document.getElementById("profileArchetype");
+
+if(type && !input.value){
+
+input.value=auraData[type].name;
+
+}
+
+localStorage.setItem(
+"velvetAuraProfile",
+input.value
+);
+
+document.getElementById("savedMessage").innerText=
+"✓ تم حفظ ملف هالتكِ.";
+
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+createTracker();
+
+const saved=localStorage.getItem("velvetAuraType");
+
+if(saved){
+
+document.getElementById("profileArchetype").value=
+auraData[saved].name;
+
+}
+
+});
+
+</script>
+
 </body>
 </html>

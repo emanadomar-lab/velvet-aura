@@ -475,6 +475,41 @@ h3{
   .code-card{
     flex-direction:column;
   }
+}.stage-card{
+  appearance:none;
+  width:100%;
+  text-align:right;
+  font-family:Georgia,"Times New Roman",serif;
+  background:rgba(255,255,255,.6);
+  border:1px solid rgba(139,100,85,.12);
+  border-radius:25px;
+  padding:28px;
+  color:var(--brown);
+  box-shadow:var(--shadow);
+  cursor:pointer;
+  transition:.3s;
+}
+
+.stage-card:hover{
+  transform:translateY(-7px);
+  background:rgba(255,255,255,.82);
+  box-shadow:0 25px 55px rgba(74,45,35,.17);
+}
+
+.stage-card h3{
+  font-size:28px;
+  margin:18px 0 8px;
+}
+
+.stage-card p{
+  line-height:1.9;
+  color:#705b53;
+}
+
+.stage-link{
+  display:inline-block;
+  color:var(--gold);
+  font-size:14px;
 }
 </style>
 </head>
@@ -543,28 +578,62 @@ h3{
       </p>
     </div>
 
-    <div class="grid three">
+<div class="grid three">
 
-      <div class="card">
-        <span class="phase">01 — DISCOVER</span>
-        <h3>اكتشفي</h3>
-        <p>اكتشفي نمط هالتكِ العطرية والشخصية من خلال الاختبار التفاعلي.</p>
-      </div>
+  <button class="stage-card" onclick="showScreen('quiz')">
 
-      <div class="card">
-        <span class="phase">02 — BUILD</span>
-        <h3>ابني</h3>
-        <p>ابني طقوس العناية والعطر والمظهر حول هوية واضحة.</p>
-      </div>
+    <span class="phase">01 — DISCOVER</span>
 
-      <div class="card">
-        <span class="phase">03 — REFINE</span>
-        <h3>اصقلي</h3>
-        <p>اضبطي التفاصيل الصغيرة التي تصنع الفرق في حضوركِ.</p>
-      </div>
+    <h3>اكتشفي</h3>
 
-    </div>
+    <p>
+      اكتشفي نمط هالتكِ العطرية والشخصية
+      من خلال الاختبار التفاعلي.
+    </p>
 
+    <span class="stage-link">
+      ابدئي الاكتشاف ←
+    </span>
+
+  </button>
+
+
+  <button class="stage-card" onclick="showScreen('dna')">
+
+    <span class="phase">02 — BUILD</span>
+
+    <h3>ابني</h3>
+
+    <p>
+      ابني طقوس العناية والعطر والمظهر
+      حول هوية واضحة.
+    </p>
+
+    <span class="stage-link">
+      ابنِي هالتكِ ←
+    </span>
+
+  </button>
+
+
+  <button class="stage-card" onclick="showScreen('rituals')">
+
+    <span class="phase">03 — REFINE</span>
+
+    <h3>اصقلي</h3>
+
+    <p>
+      اضبطي التفاصيل الصغيرة التي تصنع
+      الفرق في حضوركِ.
+    </p>
+
+    <span class="stage-link">
+      ابدئي طقوسكِ ←
+    </span>
+
+  </button>
+
+</div>
   </section>
 
 </main>
